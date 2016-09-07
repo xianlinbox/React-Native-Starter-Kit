@@ -7,7 +7,7 @@ import {
   Text,
   View
 } from 'react-native';
-const SearchPage = require('./src/searchPage');
+const SearchPage = require('./src/property/pages/searchPage');
 
 class PropertyFinder extends Component {
   render() {
@@ -37,9 +37,9 @@ class PropertyFinder extends Component {
               }
             },
            RightButton: (route, navigator, index, navState) =>
-             { return (<Text>Done</Text>); },
+             { return  null; },
            Title: (route, navigator, index, navState) =>
-             { return (<Text>{route.title}</Text>); },
+             { return (<Text>{route.title}</Text>); }
          }}
          style={{backgroundColor: 'gray'}}
        />

@@ -147,7 +147,6 @@ class SearchPage extends Component {
   }
 
   render() {
-    console.log('SearchPage.render');
     const spinner = this.state.isLoading ? ( <ActivityIndicator size='large'/> ) : null;
 
     return (
@@ -161,13 +160,18 @@ class SearchPage extends Component {
         <View style={styles.flowRight}>
           <TextInput
             style={styles.searchInput}
+            accessible={true}
+            accessibilityLabel="CityName"
+            name="city"
             value={this.state.searchString}
             onChange={this.onSearchTextChanged.bind(this)}
             placeholder='Search via name or postcode'/>
           <TouchableHighlight style={styles.button}
                               underlayColor='#99d9f4'
+                              accessibilityLabel="SearchButton"
                               onPress={this.onSearchPressed.bind(this)}>
-            <Text style={styles.buttonText}>Go</Text>
+            <Text accessibilityLabel="SearchButtonLabel"
+                  style={styles.buttonText}>Go</Text>
           </TouchableHighlight>
         </View>
         <TouchableHighlight style={styles.button}
@@ -175,7 +179,7 @@ class SearchPage extends Component {
                             underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Location</Text>
         </TouchableHighlight>
-        <Image source={require('./../resources/house.png')} style={styles.image}/>
+        <Image source={require('./../../../resources/house.png')} style={styles.image}/>
         {spinner}
         <Text style={styles.description}>{this.state.message}</Text>
       </View>

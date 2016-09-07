@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  */
-
+#import "CodePush.h"
 #import "AppDelegate.h"
 
 #import "RCTBundleURLProvider.h"
@@ -18,7 +18,17 @@
 {
   NSURL *jsCodeLocation;
 
-//  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"]; 
+//  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+//  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+//  jsCodeLocation = [CodePush bundleURL];
+
+  NSLog(@"%@",jsCodeLocation);
+#ifdef DEBUG
+//  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+#else
+//  jsCodeLocation = [CodePush bundleURL];
+#endif
+
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 

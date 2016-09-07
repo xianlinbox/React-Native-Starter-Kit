@@ -3,13 +3,25 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "bundle-iOS": "react-native bundle --platform ios --entry-file index.ios.js --bundle-output ./ios/index.ios.bundle --assets-dest ./release --dev false"
   },
   "dependencies": {
+    "immutable": "^3.8.1",
     "react": "15.2.1",
-    "react-native": "0.30.0"
+    "react-native": "0.30.0",
+    "react-native-code-push": "^1.14.1-beta",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2"
   },
   "devDependencies": {
+    "appium": "^1.5.3",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "express": "^4.14.0",
+    "mocha": "^3.0.2",
+    "remote-redux-devtools": "^0.4.2",
+    "wd": "^0.4.0",
     "webpack": "^1.13.1"
   }
 }
