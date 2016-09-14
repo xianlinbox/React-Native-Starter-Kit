@@ -3,48 +3,80 @@
 require("../setup");
 const wd = require("wd");
 const serverConfigs = require('../appiumServer');
+const SearchPageCreater = require('../pages/properties/searchPage');
+const SearchResultPageCreater = require('../pages/properties/searchResultPage');
+const PropertyDetailsPageCreater = require('../pages/properties/propertyDetailsPage');
 
 describe("Property", function () {
   this.timeout(30000);
-  var driver;
+  var appiumDriver;
+  var PropertyDetailPage;
   var allPassed = true;
 
   before(function () {
-    driver = wd.promiseChainRemote(serverConfigs.local);
+    appiumDriver = wd.promiseChainRemote(serverConfigs.local);
+    PropertyDetailPage = PropertyDetailsPageCreater(appiumDriver);
     const desired = serverConfigs.ios93;
-    return driver.init(desired);
+    return appiumDriver.init(desired);
   });
 
   after(function () {
-    return driver.quit();
+    return appiumDriver.quit();
   });
 
   afterEach(function () {
     allPassed = allPassed && this.currentTest.state === 'passed';
   });
 
-  it("load home page", function () {
-    return driver
-      .elementById('SearchButton')
-      .text()
-      .then((text) =>{
-        text.should.equal("SearchButton");
-      });
+  it("search properties in new york", () => {
+    const searchPage = SearchPageCreater(appiumDriver);
+    return searchPage
+      .fillCityName('New york')
+      .getValue().should.eventually.equal('New york')
+      .then(() => {
+        return searchPage.search()
+      })
+      .waitForElementById('property0')
+      .should.eventually.exist;
   });
 
-  it("search property in new york", function () {
-    return driver
-      .elementById('CityName')
-      .then((el) =>{
-        return el
-          .clear()
-          .sendKeys('New york')
-          .getValue().should.eventually.equal('New york')
-          .elementById('SearchButton')
-          .click()
-          .sleep(1000);
-      })
-      .elementByClassName('UIAScrollView')
+  it("select the first property ", () => {
+    const SearchResultPage = SearchResultPageCreater(appiumDriver);
+    return SearchResultPage
+      .clickFirstProperty()
+      .waitForElementById('PropertyTitle')
       .should.eventually.exist;
+  });
+
+  it("show first property details", () => {
+    const PropertyDetailPage = PropertyDetailsPageCreater(appiumDriver);
+    return PropertyDetailPage
+      .propertyTitle
+      .getValue()
+      .should.eventually.eql("Castle Dyke Bank, New York, Lincoln");
+  });
+
+  it("back to search result page", () => {
+    const PropertyDetailPage = PropertyDetailsPageCreater(appiumDriver);
+    return PropertyDetailPage
+      .back()
+      .waitForElementById('property1')
+      .should.eventually.exist;
+  });
+
+  it("select fifth property details", () => {
+    const SearchResultPage = SearchResultPageCreater(appiumDriver);
+    return SearchResultPage
+      .clickSecondProperty()
+      .waitForElementById('PropertyTitle')
+      .should.eventually.exist;
+  });
+
+  it("show fifth property details", () => {
+    const PropertyDetailPage = PropertyDetailsPageCreater(appiumDriver);
+    return PropertyDetailPage
+      .propertyTitle
+      .getValue()
+      .should.eventually.eql("Castle Dyke Bank, New York, Lincoln");
   });
 });

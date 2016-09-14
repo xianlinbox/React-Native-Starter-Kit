@@ -37,11 +37,12 @@ class SearchResults extends Component {
 
     return (
       <TouchableHighlight onPress={() => this.rowPressed(rowData.guid)}
+                          testID={'property' + rowID}
                           underlayColor='#dddddd'>
         <View>
           <View style={styles.rowContainer}>
-            <Image style={styles.thumb} source={{ uri: rowData.img_url }} />
-            <View  style={styles.textContainer}>
+            <Image style={styles.thumb} source={{ uri: rowData.img_url }}/>
+            <View style={styles.textContainer}>
               <Text style={styles.price}>£{price}</Text>
               <Text style={styles.title}
                     numberOfLines={1}>{rowData.title}</Text>

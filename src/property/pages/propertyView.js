@@ -24,10 +24,12 @@ class PropertyView extends Component {
     return (
       <View style={styles.container}>
         <Image style={styles.image}
-               source={{uri: property.img_url}} />
+               source={{uri: property.img_url}}/>
         <View style={styles.heading}>
           <Text style={styles.price}>£{price}</Text>
-          <Text style={styles.title}>{property.title}</Text>
+          <Text style={styles.title} testID="PropertyTitle">
+            {property.title}
+          </Text>
           <View style={styles.separator}/>
         </View>
         <Text style={styles.description}>{stats}</Text>

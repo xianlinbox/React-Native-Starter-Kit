@@ -168,10 +168,9 @@ class SearchPage extends Component {
             placeholder='Search via name or postcode'/>
           <TouchableHighlight style={styles.button}
                               underlayColor='#99d9f4'
-                              accessibilityLabel="SearchButton"
+                              testID="SearchButton"
                               onPress={this.onSearchPressed.bind(this)}>
-            <Text accessibilityLabel="SearchButtonLabel"
-                  style={styles.buttonText}>Go</Text>
+            <Text style={styles.buttonText}>Go</Text>
           </TouchableHighlight>
         </View>
         <TouchableHighlight style={styles.button}
