@@ -1,4 +1,3 @@
-import React, {View, Text, StyleSheet} from 'react-native';
 import {expect} from 'chai';
 
 describe('searchResultPageSpecs', () => {
