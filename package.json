@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "immutable": "^3.8.1",
-    "react": "15.2.1",
+    "react": "15.3.1",
     "react-native": "0.30.0",
     "react-native-code-push": "^1.14.1-beta",
     "react-redux": "^4.4.5",
@@ -25,9 +25,10 @@
     "express": "^4.14.0",
     "mocha": "^3.0.2",
     "q": "^1.4.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
     "react-native-mock": "^0.2.6",
     "remote-redux-devtools": "^0.4.2",
-    "underscore": "^1.8.3",
     "wd": "^0.4.0",
     "webpack": "^1.13.1"
   }
