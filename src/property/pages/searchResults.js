@@ -31,8 +31,9 @@ class SearchResults extends Component {
       }
     });
   }
-
+  
   renderRow(rowData, sectionID, rowID) {
+    console.log("rendered-" + rowID);
     const price = rowData.price_formatted.split(' ')[0];
 
     return (
