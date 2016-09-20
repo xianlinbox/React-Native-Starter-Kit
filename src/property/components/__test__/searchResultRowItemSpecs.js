@@ -3,6 +3,7 @@ import {shallow} from 'enzyme';
 import React, {View, Text, Image, TouchableHighlight} from 'react-native';
 import sinon from 'sinon';
 import SearchResultItem from '../searchResultRowItem';
+import styles from '../styles/searchResultItemRowItemStyles'
 
 var component;
 var onPressStub;
@@ -27,10 +28,9 @@ test('renders property image', t => {
   t.is(component.find(Image).length, 1);
 });
 
-test.skip('renders price label', t => {
-  t.true(component.contains(<Text>£929,995</Text>));
+test('renders price label', t => {
+  t.true(component.contains(<Text style={styles.price}>£929,995</Text>));
 });
-
 
 test.after(() =>{
   sinon.restore();

@@ -1,12 +1,13 @@
 'use strict';
 import React from 'react';
-const {
-  StyleSheet,
+import {
   Image,
   View,
   TouchableHighlight,
   Text
-} = require('react-native');
+} from 'react-native';
+
+import styles from './styles/searchResultItemRowItemStyles'
 
 export default function ({title, price_formatted, img_url, rowID, onPress}) {
   const price = price_formatted.split(' ')[0];
@@ -19,7 +20,7 @@ export default function ({title, price_formatted, img_url, rowID, onPress}) {
         <View style={styles.rowContainer}>
           <Image style={styles.thumb} source={{ uri: img_url }}/>
           <View style={styles.textContainer}>
-            <Text style={styles.price}>£{price}</Text>
+            <Text style={styles.price}>{price}</Text>
             <Text style={styles.title} numberOfLines={1}>{title}</Text>
           </View>
         </View>
@@ -29,30 +30,3 @@ export default function ({title, price_formatted, img_url, rowID, onPress}) {
   );
 }
 
-const styles = StyleSheet.create({
-  thumb: {
-    width: 80,
-    height: 80,
-    marginRight: 10
-  },
-  textContainer: {
-    flex: 1
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#dddddd'
-  },
-  price: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: '#48BBEC'
-  },
-  title: {
-    fontSize: 20,
-    color: '#656565'
-  },
-  rowContainer: {
-    flexDirection: 'row',
-    padding: 10
-  }
-});
