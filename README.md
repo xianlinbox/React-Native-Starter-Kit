@@ -4,7 +4,8 @@ The React Native starter kit which included all the best practises(I thought) sh
 ## Features
 - Ready for ES2015 and beyond
 - Javascript Linting
-- Ready for test driven development
+- Ready for test driven development with ava
+- Code Coverage with nyc
 - Ready for automated acceptance testing
 - Code quality metrics
 - Continuous Integration Scripts
@@ -20,8 +21,8 @@ The React Native starter kit which included all the best practises(I thought) sh
 - [babeljs](https://babeljs.io/)
 - [immutablejs](http://facebook.github.io/immutable-js)
 - [eslint](http://eslint.org/)
-- [mocha](https://mochajs.org/)
-- [chai](http://chaijs.com/)
+- [ava](https://github.com/avajs/ava)
+- [nyc](https://github.com/istanbuljs/nyc)
 - [sinon](http://sinonjs.org/)
 - [Enzyme](http://airbnb.io/enzyme/)
 - [getstorybook](https://github.com/kadirahq/react-native-storybook)

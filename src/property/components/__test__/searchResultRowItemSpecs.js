@@ -32,6 +32,11 @@ test('renders price label', t => {
   t.true(component.contains(<Text style={styles.price}>£929,995</Text>));
 });
 
+test('click on current component', t => {
+  component.simulate('press');
+  t.true(onPressStub.calledOnce);
+});
+
 test.after(() =>{
   sinon.restore();
 });
