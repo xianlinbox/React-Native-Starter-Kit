@@ -5,8 +5,25 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "run-ios": "react-native run-ios",
-    "test": "node_modules/.bin/mocha  --require react-native-mock/mock --compilers js:babel-core/register --recursive src/**/__test__/*.js --watch",
+    "test": "ava src/**/__test__/*Specs.js --verbose",
+    "watch:test": "npm run test -- --watch",
+    "cover": "nyc npm run test",
+    "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "bundle-iOS": "react-native bundle --platform ios --entry-file index.ios.js --bundle-output ./ios/index.ios.bundle --assets-dest ./release --dev false"
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "./test/helpers/setTestEnv.js",
+      "react-native-mock/mock"
+    ]
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ]
   },
   "dependencies": {
     "immutable": "^3.8.1",
@@ -18,20 +35,21 @@
   },
   "devDependencies": {
     "appium": "^1.5.3",
+    "ava": "^0.16.0",
     "babel-core": "^6.14.0",
+    "babel-polyfill": "^6.13.0",
     "babel-preset-react-native": "^1.9.0",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^5.3.0",
+    "babel-register": "^6.14.0",
     "enzyme": "^2.4.1",
     "express": "^4.14.0",
-    "mocha": "^3.0.2",
-    "q": "^1.4.1",
-    "react": "^15.3.1",
+    "jsdom": "^9.5.0",
+    "jsx-test-helpers": "^1.1.0",
+    "nyc": "^8.3.0",
+    "react-addons-test-utils": "^15.3.2",
     "react-dom": "^15.3.1",
     "react-native-mock": "^0.2.6",
     "remote-redux-devtools": "^0.4.2",
     "sinon": "^1.17.5",
-    "wd": "^0.4.0",
-    "webpack": "^1.13.1"
+    "wd": "^0.4.0"
   }
 }

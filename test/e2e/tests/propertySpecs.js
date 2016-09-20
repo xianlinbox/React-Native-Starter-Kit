@@ -1,6 +1,6 @@
 "use strict";
 
-require("../setup");
+require("../setUp");
 const wd = require("wd");
 const serverConfigs = require('../appiumServer');
 const SearchPageCreater = require('../pages/properties/searchPage');

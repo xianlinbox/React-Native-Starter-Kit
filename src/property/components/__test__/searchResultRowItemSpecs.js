@@ -1,42 +1,37 @@
-import React, {View, Text, TouchableHighlight} from 'react-native';
+import test from 'ava';
 import {shallow} from 'enzyme';
-import {expect} from 'chai';
-const sinon = require('sinon').sandbox.create();
-import searchResultItem from '../searchResultRowItem';
+import React, {View, Text, Image, TouchableHighlight} from 'react-native';
+import sinon from 'sinon';
+import SearchResultItem from '../searchResultRowItem';
 
-describe.only('SearchResultItem', () => {
-  var Component;
-  var onPressStub;
+var component;
+var onPressStub;
 
-  beforeEach(() => {
-    const onPressStub = sinon.stub();
-    var rowData = {
-      price_formatted: "£929,995",
-      title: "propertyTitle",
-      rowID: 1,
-      onPress: onPressStub
-    };
+test.before(() => {
+  onPressStub = sinon.stub();
+  const rowData = {
+    price_formatted: '£929,995',
+    title: 'propertyTitle',
+    img_url: 'image',
+    rowID: 1,
+    onPress: onPressStub
+  };
+  component = shallow(<SearchResultItem {...rowData} />);
+});
 
-    Component = shallow(<TouchableHighlight>
-      <View>
-        <View >
-          <View >
-            <Text />
-            <Text/>
-          </View>
-        </View>
-      </View>
-    </TouchableHighlight>);
-  });
+test('renders a touchable component', t => {
+  t.is(component.find(TouchableHighlight).length, 1);
+});
+
+test('renders property image', t => {
+  t.is(component.find(Image).length, 1);
+});
+
+test.skip('renders price label', t => {
+  t.true(component.contains(<Text>£929,995</Text>));
+});
 
 
-  afterEach(() => {
-    sinon.restore();
-  });
-
-  it('should be touchable', () => {
-    console.log("1");
-    console.log(Component.find(Text).type());
-    expect(Component.type()).to.equal(TouchableHighlight);
-  });
+test.after(() =>{
+  sinon.restore();
 });

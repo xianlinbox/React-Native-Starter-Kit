@@ -1,5 +1,5 @@
 'use strict';
-import React, {Component} from 'react';
+import React from 'react';
 const {
   StyleSheet,
   Image,
@@ -20,8 +20,7 @@ export default function ({title, price_formatted, img_url, rowID, onPress}) {
           <Image style={styles.thumb} source={{ uri: img_url }}/>
           <View style={styles.textContainer}>
             <Text style={styles.price}>£{price}</Text>
-            <Text style={styles.title}
-                  numberOfLines={1}>{title}</Text>
+            <Text style={styles.title} numberOfLines={1}>{title}</Text>
           </View>
         </View>
         <View style={styles.separator}/>
