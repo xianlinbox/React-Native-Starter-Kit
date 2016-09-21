@@ -129,7 +129,7 @@ class SearchPage extends Component {
   _handleResponse(response) {
     this.setState({isLoading: false, message: ''});
     if (response.application_response_code.substr(0, 1) === '1') {
-      Actions.login({listings: response.listings});
+      Actions.SearchResults({listings: response.listings});
     } else {
       this.setState({message: 'Location not recognized; please try again.'});
     }
