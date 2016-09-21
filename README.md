@@ -8,6 +8,7 @@ The React Native starter kit which included all the best practises(I thought) sh
 - Code Coverage with nyc
 - Ready for automated acceptance testing
 - Code quality metrics
+- Debugger Tools & Practises
 - Continuous Integration Scripts
 - Functional architecture (immutability, hot reloading)
 - Form validation
@@ -17,7 +18,7 @@ The React Native starter kit which included all the best practises(I thought) sh
 
 ## Libraries
 - [React Native](https://facebook.github.io/react-native/)
-- [react-native-navigation](https://github.com/wix/react-native-navigation/wiki)
+- [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)
 - [Redux](http://rackt.github.io/redux/)
 - [babeljs](https://babeljs.io/)
 - [immutablejs](http://facebook.github.io/immutable-js)

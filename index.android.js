@@ -6,7 +6,7 @@ import {
   Text,
   View
 } from 'react-native';
-const SearchPage = require('./src/property/pages/searchPage');
+const SearchPage = require('./src/property/scenes/searchPage');
 
 class PropertyFinder extends Component {
   render() {
