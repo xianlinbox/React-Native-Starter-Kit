@@ -17,6 +17,7 @@ The React Native starter kit which included all the best practises(I thought) sh
 
 ## Libraries
 - [React Native](https://facebook.github.io/react-native/)
+- [react-native-navigation](https://github.com/wix/react-native-navigation/wiki)
 - [Redux](http://rackt.github.io/redux/)
 - [babeljs](https://babeljs.io/)
 - [immutablejs](http://facebook.github.io/immutable-js)
