@@ -11,7 +11,6 @@ import {
   Image
 } from 'react-native';
 import {Actions} from "react-native-router-flux";
-
 import styles from './styles/searchPageStyles';
 
 function urlForQueryAndPage(key, value, pageNumber) {

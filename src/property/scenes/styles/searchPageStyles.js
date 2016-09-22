@@ -11,7 +11,8 @@ module.exports = StyleSheet.create({
     padding: 30,
     marginTop: 65,
     alignItems: 'center'
-  }, flowRight: {
+  },
+  flowRight: {
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'stretch'

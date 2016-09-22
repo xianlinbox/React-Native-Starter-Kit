@@ -7,6 +7,8 @@ import {
   Text
 } from 'react-native';
 import styles from './styles/propertyViewStyles'
+import atomicStyles from '../../shared/styles/atomicStyles';
+
 
 class PropertyView extends Component {
 
@@ -21,7 +23,7 @@ class PropertyView extends Component {
     var price = property.price_formatted.split(' ')[0];
 
     return (
-      <View style={styles.container}>
+      <View style={atomicStyles.container}>
         <Image style={styles.image}
                source={{uri: property.img_url}}/>
         <View style={styles.heading}>

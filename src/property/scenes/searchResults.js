@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {ListView} from 'react-native';
 import SearchResultRowItem from '../components/searchResultRowItem';
 import {Actions} from "react-native-router-flux";
+import atomicStyles from '../../shared/styles/atomicStyles';
 
 class SearchResults extends Component {
 
@@ -24,6 +25,7 @@ class SearchResults extends Component {
   render() {
     return (
       <ListView
+        style={atomicStyles.container}
         dataSource={this.state.dataSource}
         renderRow={this.renderRow}/>
     );
