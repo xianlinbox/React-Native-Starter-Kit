@@ -24,13 +24,13 @@ Initially the boilerplate will support Android only.
 - [x] Code coverage with nyc
 - [x] Automated acceptance testing setup with appium
 - [ ] Continuous Integration setup
-- [ ] Redux
-- [ ] Immutable data structures
+- [ ] Redux(**in progress**)
+- [ ] Immutable data structures(**in progress**)
 - [ ] Redux middleware management strategy
 - [ ] Redux debugger
 - [ ] Form validation
 - [ ] Hot Reloading
-- [ ] Default app structure
+- [ ] Default app structure(**in progress**)
 - [ ] CDD with getstorybook
 - [x] Navigation with react-native-router-flux
 - [ ] Persistence
