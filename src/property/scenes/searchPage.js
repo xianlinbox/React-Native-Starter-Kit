@@ -1,7 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
-const {
+import {
   StyleSheet,
   Text,
   TextInput,
@@ -9,58 +9,9 @@ const {
   TouchableHighlight,
   ActivityIndicator,
   Image
-} = require('react-native');
-const SearchResults = require('./searchResults');
-
-const styles = StyleSheet.create({
-  description: {
-    marginBottom: 20,
-    fontSize: 18,
-    textAlign: 'center',
-    color: '#656565'
-  },
-  container: {
-    padding: 30,
-    marginTop: 65,
-    alignItems: 'center'
-  }, flowRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'stretch'
-  },
-  buttonText: {
-    fontSize: 18,
-    color: 'white',
-    alignSelf: 'center'
-  },
-  button: {
-    height: 36,
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
-  searchInput: {
-    height: 36,
-    padding: 4,
-    marginRight: 5,
-    flex: 4,
-    fontSize: 18,
-    borderWidth: 1,
-    borderColor: '#48BBEC',
-    borderRadius: 8,
-    color: '#48BBEC'
-  },
-  image: {
-    width: 217,
-    height: 138
-  }
-});
+} from 'react-native';
+import {Actions} from "react-native-router-flux";
+import styles from './styles/searchPageStyles';
 
 function urlForQueryAndPage(key, value, pageNumber) {
   var data = {
@@ -129,13 +80,7 @@ class SearchPage extends Component {
   _handleResponse(response) {
     this.setState({isLoading: false, message: ''});
     if (response.application_response_code.substr(0, 1) === '1') {
-      this.props.navigator.push({
-        title: 'Results',
-        component: SearchResults,
-        params: {
-          listings: response.listings
-        }
-      });
+      Actions.SearchResults({listings: response.listings});
     } else {
       this.setState({message: 'Location not recognized; please try again.'});
     }
@@ -178,7 +123,7 @@ class SearchPage extends Component {
                             underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>Location</Text>
         </TouchableHighlight>
-        <Image source={require('./.././house.png')} style={styles.image}/>
+        <Image source={require('../../shared/resources/house.png')} style={styles.image}/>
         {spinner}
         <Text style={styles.description}>{this.state.message}</Text>
       </View>

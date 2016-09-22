@@ -1,20 +1,24 @@
-import {View, StyleSheet} from 'react-native';
 import React, {Component} from 'react';
-import GlobalNavigation from './GlobalNavigation';
+import {StyleSheet} from 'react-native';
+import PropertyScenes from '../property/index';
+import CarScenes from '../car/index';
 
-class App extends Component {
+import {
+  Scene,
+  Router
+} from 'react-native-router-flux';
+
+export default class PropertyFinder extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <GlobalNavigation />
-      </View>
+      <Router>
+        <Scene key='home' tabs={true}>
+          {PropertyScenes()}
+          {CarScenes()}
+        </Scene>
+      </Router>
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-});
 
-export default App;
+module.exports = PropertyFinder;

@@ -1,12 +1,13 @@
 'use strict';
 
 import React, {Component} from 'react';
-const {
-  StyleSheet,
+import {
   Image,
   View,
   Text
-} = require('react-native');
+} from 'react-native';
+import styles from './styles/propertyViewStyles'
+import atomicStyles from '../../shared/styles/atomicStyles';
 
 
 class PropertyView extends Component {
@@ -22,7 +23,7 @@ class PropertyView extends Component {
     var price = property.price_formatted.split(' ')[0];
 
     return (
-      <View style={styles.container}>
+      <View style={atomicStyles.container}>
         <Image style={styles.image}
                source={{uri: property.img_url}}/>
         <View style={styles.heading}>
@@ -39,38 +40,5 @@ class PropertyView extends Component {
   }
 }
 
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 65
-  },
-  heading: {
-    backgroundColor: '#F8F8F8'
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#DDDDDD'
-  },
-  image: {
-    width: 400,
-    height: 300
-  },
-  price: {
-    fontSize: 25,
-    fontWeight: 'bold',
-    margin: 5,
-    color: '#48BBEC'
-  },
-  title: {
-    fontSize: 20,
-    margin: 5,
-    color: '#656565'
-  },
-  description: {
-    fontSize: 18,
-    margin: 5,
-    color: '#656565'
-  }
-});
 
 module.exports = PropertyView;
