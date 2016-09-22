@@ -1,17 +1,11 @@
 import {SEARCH, CHECK_PROPERTY_DETAILS} from '../actions/propertyActionTypes';
 
-const initialState = {
-  searchRequest: {},
-  properties: [],
-  currentProperty: {}
-};
-
-export default (state = initialState, action = {}) => {
+export default (state = {}, action = {}) => {
   switch (action.type) {
     case SEARCH:
       return {
         ...state,
-        searchRequest: action.payload
+        searchString: action.payload
       };
     case CHECK_PROPERTY_DETAILS:
       return {

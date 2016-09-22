@@ -10,7 +10,9 @@ import {
   ActivityIndicator,
   Image
 } from 'react-native';
+import { connect } from 'react-redux';
 import {Actions} from "react-native-router-flux";
+import * as PropertyActions from "../actions/propertyActions";
 import styles from './styles/searchPageStyles';
 
 function urlForQueryAndPage(key, value, pageNumber) {
@@ -36,17 +38,14 @@ class SearchPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchString: 'london',
+      searchString: props.searchString,
       isLoading: false,
       message: ''
-
     };
   }
 
   onSearchTextChanged(event) {
-    console.log('onSearchTextChanged');
     this.setState({searchString: event.nativeEvent.text});
-    console.log(this.state.searchString);
   }
 
   onLocationPressed() {
@@ -55,6 +54,7 @@ class SearchPage extends Component {
         var search = location.coords.latitude + ',' + location.coords.longitude;
         this.setState({ searchString: search });
         var query = urlForQueryAndPage('centre_point', search, 1);
+        PropertyActions.search(search);
         this._executeQuery(query);
       },
       error => {
@@ -87,6 +87,7 @@ class SearchPage extends Component {
   }
 
   onSearchPressed() {
+    PropertyActions.search(this.state.searchString);
     var query = urlForQueryAndPage('place_name', this.state.searchString, 1);
     this._executeQuery(query);
   }
@@ -131,4 +132,9 @@ class SearchPage extends Component {
   }
 }
 
-module.exports = SearchPage;
+function mapStateToProps(state) {
+  return {
+    searchString: state.searchString
+  };
+}
+module.exports = connect(mapStateToProps)(SearchPage);
