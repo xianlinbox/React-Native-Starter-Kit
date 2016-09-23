@@ -42,8 +42,6 @@
     "redux": "^3.5.2"
   },
   "devDependencies": {
-    "eslint": "^3.5.0",
-    "flow-bin": "^0.27.0",
     "appium": "^1.5.3",
     "ava": "^0.16.0",
     "babel-core": "^6.14.0",
@@ -51,7 +49,13 @@
     "babel-preset-react-native": "^1.9.0",
     "babel-register": "^6.14.0",
     "enzyme": "^2.4.1",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
     "express": "^4.14.0",
+    "flow-bin": "^0.27.0",
     "jsdom": "^9.5.0",
     "jsx-test-helpers": "^1.1.0",
     "nyc": "^8.3.0",
