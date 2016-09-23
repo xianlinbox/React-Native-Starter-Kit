@@ -10,7 +10,9 @@ import {
   ActivityIndicator,
   Image
 } from 'react-native';
+import {connect} from 'react-redux';
 import {Actions} from "react-native-router-flux";
+import * as PropertyActions from "../actions/propertyActions";
 import styles from './styles/searchPageStyles';
 
 function urlForQueryAndPage(key, value, pageNumber) {
@@ -36,25 +38,25 @@ class SearchPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchString: 'london',
+      searchString: props.searchString,
       isLoading: false,
-      message: ''
-
+      message: '',
+      saveSearchString: props.saveSearchString,
+      saveSearchResults: props.saveSearchResults
     };
   }
 
   onSearchTextChanged(event) {
-    console.log('onSearchTextChanged');
     this.setState({searchString: event.nativeEvent.text});
-    console.log(this.state.searchString);
   }
 
   onLocationPressed() {
     navigator.geolocation.getCurrentPosition(
       location => {
         var search = location.coords.latitude + ',' + location.coords.longitude;
-        this.setState({ searchString: search });
+        this.setState({searchString: search});
         var query = urlForQueryAndPage('centre_point', search, 1);
+        PropertyActions.search(search);
         this._executeQuery(query);
       },
       error => {
@@ -70,23 +72,29 @@ class SearchPage extends Component {
     fetch(query)
       .then(response => response.json())
       .then(json => this._handleResponse(json.response))
-      .catch(error =>
+      .catch(error => {
+        console.error(error);
         this.setState({
           isLoading: false,
           message: 'Something bad happened ' + error
-        }));
+        });
+      });
   }
 
   _handleResponse(response) {
+    const {saveSearchResults} = this.props;
     this.setState({isLoading: false, message: ''});
     if (response.application_response_code.substr(0, 1) === '1') {
-      Actions.SearchResults({listings: response.listings});
+      saveSearchResults(response.listings);
+      Actions.SearchResults();
     } else {
       this.setState({message: 'Location not recognized; please try again.'});
     }
   }
 
   onSearchPressed() {
+    const {saveSearchString} = this.props;
+    saveSearchString(this.state.searchString);
     var query = urlForQueryAndPage('place_name', this.state.searchString, 1);
     this._executeQuery(query);
   }
@@ -131,4 +139,20 @@ class SearchPage extends Component {
   }
 }
 
-module.exports = SearchPage;
+function mapStateToProps(state) {
+  return {
+    searchString: state.searchString
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    saveSearchString: (searchString) => dispatch(PropertyActions.search(searchString)),
+    saveSearchResults: (results) => dispatch(PropertyActions.saveProperties(results))
+  };
+}
+
+module.exports = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchPage);

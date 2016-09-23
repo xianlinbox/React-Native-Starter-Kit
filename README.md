@@ -24,13 +24,13 @@ Initially the boilerplate will support Android only.
 - [x] Code coverage with nyc
 - [x] Automated acceptance testing setup with appium
 - [ ] Continuous Integration setup
-- [ ] Redux
-- [ ] Immutable data structures
-- [ ] Redux middleware management strategy
-- [ ] Redux debugger
+- [x] Redux
+- [ ] Immutable data structures(**in progress**)
+- [ ] Redux middleware management strategy(**in progress**)
+- [x] Redux debugger
 - [ ] Form validation
 - [ ] Hot Reloading
-- [ ] Default app structure
+- [ ] Default app structure(**in progress**)
 - [ ] CDD with getstorybook
 - [x] Navigation with react-native-router-flux
 - [ ] Persistence
@@ -39,6 +39,7 @@ Initially the boilerplate will support Android only.
 - [React Native](https://facebook.github.io/react-native/)
 - [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)
 - [Redux](http://rackt.github.io/redux/)
+- [react-native-debugger](https://github.com/jhen0409/react-native-debugger)
 - [babeljs](https://babeljs.io/)
 - [immutablejs](http://facebook.github.io/immutable-js)
 - [eslint](http://eslint.org/)

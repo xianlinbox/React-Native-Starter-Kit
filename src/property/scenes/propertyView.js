@@ -6,6 +6,7 @@ import {
   View,
   Text
 } from 'react-native';
+import {connect} from 'react-redux';
 import styles from './styles/propertyViewStyles'
 import atomicStyles from '../../shared/styles/atomicStyles';
 
@@ -40,5 +41,10 @@ class PropertyView extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    property: state.currentProperty
+  };
+}
 
-module.exports = PropertyView;
+module.exports = connect(mapStateToProps)(PropertyView);
