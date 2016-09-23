@@ -24,10 +24,10 @@ Initially the boilerplate will support Android only.
 - [x] Code coverage with nyc
 - [x] Automated acceptance testing setup with appium
 - [ ] Continuous Integration setup
-- [ ] Redux(**in progress**)
+- [x] Redux
 - [ ] Immutable data structures(**in progress**)
-- [ ] Redux middleware management strategy
-- [ ] Redux debugger(**in progress**)
+- [ ] Redux middleware management strategy(**in progress**)
+- [x] Redux debugger
 - [ ] Form validation
 - [ ] Hot Reloading
 - [ ] Default app structure(**in progress**)
