@@ -72,11 +72,13 @@ class SearchPage extends Component {
     fetch(query)
       .then(response => response.json())
       .then(json => this._handleResponse(json.response))
-      .catch(error =>
+      .catch(error => {
+        console.error(error);
         this.setState({
           isLoading: false,
           message: 'Something bad happened ' + error
-        }));
+        });
+      });
   }
 
   _handleResponse(response) {
