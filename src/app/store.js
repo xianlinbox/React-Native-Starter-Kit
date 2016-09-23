@@ -1,5 +1,5 @@
 import propertyReducer from '../property/reducers/propertyReducer';
-import {createStore} from 'redux';
+import {createStore, compose} from 'redux';
 
 const initialState = {
   searchString: 'london',
@@ -7,4 +7,9 @@ const initialState = {
   currentProperty: {}
 };
 
-module.exports = createStore(propertyReducer, initialState);
+const enhancer = compose(
+  global.reduxNativeDevTools ? global.reduxNativeDevTools() : noop => noop
+);
+
+const store = createStore(propertyReducer, initialState, enhancer);
+module.exports = store;

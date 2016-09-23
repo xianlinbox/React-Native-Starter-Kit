@@ -10,7 +10,7 @@ import {
   ActivityIndicator,
   Image
 } from 'react-native';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {Actions} from "react-native-router-flux";
 import * as PropertyActions from "../actions/propertyActions";
 import styles from './styles/searchPageStyles';
@@ -40,7 +40,9 @@ class SearchPage extends Component {
     this.state = {
       searchString: props.searchString,
       isLoading: false,
-      message: ''
+      message: '',
+      saveSearchString: props.saveSearchString,
+      saveSearchResults: props.saveSearchResults
     };
   }
 
@@ -52,7 +54,7 @@ class SearchPage extends Component {
     navigator.geolocation.getCurrentPosition(
       location => {
         var search = location.coords.latitude + ',' + location.coords.longitude;
-        this.setState({ searchString: search });
+        this.setState({searchString: search});
         var query = urlForQueryAndPage('centre_point', search, 1);
         PropertyActions.search(search);
         this._executeQuery(query);
@@ -78,16 +80,19 @@ class SearchPage extends Component {
   }
 
   _handleResponse(response) {
+    const {saveSearchResults} = this.props;
     this.setState({isLoading: false, message: ''});
     if (response.application_response_code.substr(0, 1) === '1') {
-      Actions.SearchResults({listings: response.listings});
+      saveSearchResults(response.listings);
+      Actions.SearchResults();
     } else {
       this.setState({message: 'Location not recognized; please try again.'});
     }
   }
 
   onSearchPressed() {
-    PropertyActions.search(this.state.searchString);
+    const {saveSearchString} = this.props;
+    saveSearchString(this.state.searchString);
     var query = urlForQueryAndPage('place_name', this.state.searchString, 1);
     this._executeQuery(query);
   }
@@ -137,4 +142,15 @@ function mapStateToProps(state) {
     searchString: state.searchString
   };
 }
-module.exports = connect(mapStateToProps)(SearchPage);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    saveSearchString: (searchString) => dispatch(PropertyActions.search(searchString)),
+    saveSearchResults: (results) => dispatch(PropertyActions.saveProperties(results))
+  };
+}
+
+module.exports = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchPage);

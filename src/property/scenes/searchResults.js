@@ -1,5 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import {ListView} from 'react-native';
 import SearchResultRowItem from '../components/searchResultRowItem';
 import {Actions} from "react-native-router-flux";
@@ -11,7 +12,7 @@ class SearchResults extends Component {
     super(props);
     var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.guid !== r2.guid});
     this.state = {
-      dataSource: dataSource.cloneWithRows(this.props.listings)
+      dataSource: dataSource.cloneWithRows(this.props.properties)
     };
   }
 
@@ -32,4 +33,13 @@ class SearchResults extends Component {
   }
 }
 
-module.exports = SearchResults;
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    properties: state.properties
+  };
+}
+
+module.exports = connect(
+  mapStateToProps,
+)(SearchResults);

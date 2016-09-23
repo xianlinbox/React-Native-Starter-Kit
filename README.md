@@ -27,7 +27,7 @@ Initially the boilerplate will support Android only.
 - [ ] Redux(**in progress**)
 - [ ] Immutable data structures(**in progress**)
 - [ ] Redux middleware management strategy
-- [ ] Redux debugger
+- [ ] Redux debugger(**in progress**)
 - [ ] Form validation
 - [ ] Hot Reloading
 - [ ] Default app structure(**in progress**)
@@ -39,6 +39,7 @@ Initially the boilerplate will support Android only.
 - [React Native](https://facebook.github.io/react-native/)
 - [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)
 - [Redux](http://rackt.github.io/redux/)
+- [react-native-debugger](https://github.com/jhen0409/react-native-debugger)
 - [babeljs](https://babeljs.io/)
 - [immutablejs](http://facebook.github.io/immutable-js)
 - [eslint](http://eslint.org/)
