@@ -1,7 +1,6 @@
 import {SEARCH, SAVE_PROPERTIES, CHECK_PROPERTY_DETAILS} from '../actions/propertyActionTypes';
 
 export default (state = {}, action = {}) => {
-  console.log('action' + action);
   switch (action.type) {
     case SEARCH:
       return {
