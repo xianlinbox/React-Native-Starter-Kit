@@ -25,7 +25,7 @@ Initially the boilerplate will support Android only.
 - [x] Automated acceptance testing setup with appium
 - [ ] Continuous Integration setup
 - [x] Redux
-- [ ] ~Immutable data structures~
+- [x] ~~Immutable data structures~~
 - [ ] Redux middleware management strategy(**in progress**)
 - [x] Redux debugger
 - [ ] Form validation
