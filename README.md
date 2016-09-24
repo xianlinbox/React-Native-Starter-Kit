@@ -25,7 +25,7 @@ Initially the boilerplate will support Android only.
 - [x] Automated acceptance testing setup with appium
 - [ ] Continuous Integration setup
 - [x] Redux
-- [ ] Immutable data structures(**in progress**)
+- [ ] ~Immutable data structures~
 - [ ] Redux middleware management strategy(**in progress**)
 - [x] Redux debugger
 - [ ] Form validation
@@ -49,3 +49,10 @@ Initially the boilerplate will support Android only.
 - [Enzyme](http://airbnb.io/enzyme/)
 - [getstorybook](https://github.com/kadirahq/react-native-storybook)
 - And more
+
+##Immutable
+We hold using Immutable in the whole project structure, the reason as follow:
+
+ * We use Redux. In combineReducers and all separate reducers we already return new object.
+ * The benefits we can get from Immutable is avoiding re-render when props & state is not changed, But we need to add Immutable to Store, Reducers, All Components. This is too intrusive.
+ * In some specific cases, we can use Immutable case by case.
