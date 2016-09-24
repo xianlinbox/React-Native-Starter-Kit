@@ -8,6 +8,8 @@
 
 # Ignore malformed json
 .*/node_modules/y18n/test/.*\.json
+.*/node_modules/editions/
+.*/node_modules/react-native-experimental-navigation/.*
 
 [include]
 

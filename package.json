@@ -8,7 +8,9 @@
     "watch:test": "npm run test -- --watch",
     "cover": "nyc npm run test",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
-    "bundle-iOS": "react-native bundle --platform ios --entry-file index.ios.js --bundle-output ./ios/index.ios.bundle --assets-dest ./release --dev false"
+    "bundle-iOS": "react-native bundle --platform ios --entry-file index.ios.js --bundle-output ./ios/index.ios.bundle --assets-dest ./release --dev false",
+    "flow": "flow check",
+    "lint": "eslint ."
   },
   "ava": {
     "babel": "inherit",
@@ -48,6 +50,11 @@
     "babel-register": "^6.14.0",
     "enzyme": "^2.4.1",
     "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "express": "^4.14.0",
     "flow-bin": "^0.27.0",
     "jsdom": "^9.5.0",
     "jsx-test-helpers": "^1.1.0",
