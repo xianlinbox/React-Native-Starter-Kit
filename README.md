@@ -56,3 +56,29 @@ We hold using Immutable in the whole project structure, the reason as follow:
  * We use Redux. In combineReducers and all separate reducers we already return new object.
  * The benefits we can get from Immutable is avoiding re-render when props & state is not changed, But we need to add Immutable to Store, Reducers, All Components. This is too intrusive.
  * In some specific cases, we can use Immutable case by case.
+
+##Data Flow
+In Redux, The data flow normally as follow:
+
+* [Basic Data Flow](https://camo.githubusercontent.com/5aba89b6daab934631adffc1f301d17bb273268b/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6d656469612d702e736c69642e65732f75706c6f6164732f3336343831322f696d616765732f323438343535322f415243482d5265647578322d7265616c2e676966)
+* [Data Flow with Middleware](https://camo.githubusercontent.com/9de527b9432cc9244dc600875b46b43311918b59/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6d656469612d702e736c69642e65732f75706c6f6164732f3336343831322f696d616765732f323438343739302f415243482d5265647578322d657874656e6465642d7265616c2d6465636c657261746976652e676966)
+
+Based on this data flow, the patterns for Mobile App user action will be :
+
+**User Action -> (State Acquisition) -> Update Store -> UI Change**
+
+In Redux:
+
+ * User Action is just call a function,
+ * Update Store just a bunch of reducers,
+ * UI change is just mapStateToProps
+
+So the most complicated part is State Acquisition, it includes a lot of complicated scenarios, such as:
+
+1. Get data synchronous
+2. Get data asynchronous
+3. Get data-1(sync/async)
+   Get data-2(sync/async) -> update
+4. Get data-1 -> use data-1 to get data-2 -> update
+
+We need to think how to design the patterns in these scenarios.
