@@ -17,7 +17,8 @@ test.after(() => {
   sinon.restore();
 });
 
-//without serial, it will hang forever.
+//AVA tests are run concurrently, which messes up our Sinon stubbing.
+//So we need to run these test serially
 test.cb.serial('call onSuccess with the right api response', t => {
   const request = {place_name: 'london'};
   stubedFetch.withArgs('http://api.nestoria.co.uk/api?country=uk&pretty=1&encoding=json&listing_type=buy&action=search_listings&page=1&place_name=london')

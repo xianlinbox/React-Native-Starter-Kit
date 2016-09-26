@@ -48,9 +48,9 @@ class SearchPage extends Component {
       });
   }
 
-  _executeQuery(query) {
+  _executeQuery(request) {
     this.setState({isLoading: true});
-    findProperties(query, this._handleResponse.bind(this), this._handleError.bind(this));
+    findProperties(request, this._handleResponse.bind(this), this._handleError.bind(this));
   }
 
   _handleResponse(response) {
@@ -75,7 +75,6 @@ class SearchPage extends Component {
   onSearchPressed() {
     const {saveSearchString} = this.props;
     saveSearchString(this.state.searchString);
-    // var query = urlForQueryAndPage( 1);
     this._executeQuery({place_name: this.state.searchString});
   }
 
