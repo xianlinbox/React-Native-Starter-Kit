@@ -1,13 +1,6 @@
 import {SEARCH, SAVE_PROPERTIES, CHECK_PROPERTY_DETAILS} from './propertyActionTypes'
+import { createAction } from 'redux-actions';
 
-export function search(criteria) {
-  return { type: SEARCH, payload: criteria }
-}
-
-export function saveProperties(properties) {
-  return { type: SAVE_PROPERTIES, payload: properties }
-}
-
-export function checkPropertyDetails(property) {
-  return { type: CHECK_PROPERTY_DETAILS, payload: property }
-}
+export const search = createAction(SEARCH);
+export const saveProperties = createAction(SAVE_PROPERTIES);
+export const checkPropertyDetails = createAction(CHECK_PROPERTY_DETAILS);

@@ -34,12 +34,14 @@ Initially the boilerplate will support Android only.
 - [ ] CDD with getstorybook
 - [x] Navigation with react-native-router-flux
 - [ ] Persistence
+- [ ] Deep Link
 
 ## Libraries
 - [React Native](https://facebook.github.io/react-native/)
 - [react-native-router-flux](https://github.com/aksonov/react-native-router-flux)
 - [Redux](http://rackt.github.io/redux/)
 - [react-native-debugger](https://github.com/jhen0409/react-native-debugger)
+- [redux-actions](https://github.com/acdlite/redux-actions)
 - [babeljs](https://babeljs.io/)
 - [immutablejs](http://facebook.github.io/immutable-js)
 - [eslint](http://eslint.org/)
@@ -82,3 +84,8 @@ So the most complicated part is State Acquisition, it includes a lot of complica
 4. Get data-1 -> use data-1 to get data-2 -> update
 
 We need to think how to design the patterns in these scenarios.
+
+1. 求数据和特定的 UI 事件耦合到一起是不明智的。
+
+##Deep Link
+http://mp.weixin.qq.com/s?__biz=MzAwNjAzNjMyOQ==&mid=2650215008&idx=1&sn=5de38cea68bb86589680a93e679fc9d1&chksm=83103c66b467b5703c1b78d8bafc79a867a611be5672b9ed259577757fb6fa0ff8d42c954f69&scene=1&srcid=09247GuNPrKh2VyqHt6Pydxe&from=groupmessage&isappinstalled=0#wechat_redirect
