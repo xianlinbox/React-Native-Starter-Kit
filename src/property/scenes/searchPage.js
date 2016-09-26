@@ -13,25 +13,8 @@ import {
 import {connect} from 'react-redux';
 import {Actions} from "react-native-router-flux";
 import * as PropertyActions from "../actions/propertyActions";
+import {findProperties} from "../../shared/api/propertiesApi";
 import styles from './styles/searchPageStyles';
-
-function urlForQueryAndPage(key, value, pageNumber) {
-  var data = {
-    country: 'uk',
-    pretty: '1',
-    encoding: 'json',
-    listing_type: 'buy',
-    action: 'search_listings',
-    page: pageNumber
-  };
-  data[key] = value;
-
-  var querystring = Object.keys(data)
-    .map(key => key + '=' + encodeURIComponent(data[key]))
-    .join('&');
-
-  return 'http://api.nestoria.co.uk/api?' + querystring;
-};
 
 class SearchPage extends Component {
 
@@ -55,9 +38,8 @@ class SearchPage extends Component {
       location => {
         var search = location.coords.latitude + ',' + location.coords.longitude;
         this.setState({searchString: search});
-        var query = urlForQueryAndPage('centre_point', search, 1);
         PropertyActions.search(search);
-        this._executeQuery(query);
+        this._executeQuery({'centre_point': search});
       },
       error => {
         this.setState({
@@ -67,18 +49,8 @@ class SearchPage extends Component {
   }
 
   _executeQuery(query) {
-    console.log(query);
     this.setState({isLoading: true});
-    fetch(query)
-      .then(response => response.json())
-      .then(json => this._handleResponse(json.response))
-      .catch(error => {
-        console.error(error);
-        this.setState({
-          isLoading: false,
-          message: 'Something bad happened ' + error
-        });
-      });
+    findProperties(query, this._handleResponse.bind(this), this._handleError.bind(this));
   }
 
   _handleResponse(response) {
@@ -92,11 +64,19 @@ class SearchPage extends Component {
     }
   }
 
+  _handleError(error) {
+    console.error(error);
+    this.setState({
+      isLoading: false,
+      message: 'Something bad happened ' + error
+    });
+  }
+
   onSearchPressed() {
     const {saveSearchString} = this.props;
     saveSearchString(this.state.searchString);
-    var query = urlForQueryAndPage('place_name', this.state.searchString, 1);
-    this._executeQuery(query);
+    // var query = urlForQueryAndPage( 1);
+    this._executeQuery({place_name: this.state.searchString});
   }
 
   render() {
@@ -141,7 +121,8 @@ class SearchPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    searchString: state.searchString
+    searchString: state.searchString,
+    isLoading: state.isLoading
   };
 }
 
