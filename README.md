@@ -42,6 +42,7 @@ Initially the boilerplate will support Android only.
 - [Redux](http://rackt.github.io/redux/)
 - [react-native-debugger](https://github.com/jhen0409/react-native-debugger)
 - [redux-actions](https://github.com/acdlite/redux-actions)
+- [redux-thunk](https://github.com/acdlite/redux-actions)
 - [babeljs](https://babeljs.io/)
 - [immutablejs](http://facebook.github.io/immutable-js)
 - [eslint](http://eslint.org/)
