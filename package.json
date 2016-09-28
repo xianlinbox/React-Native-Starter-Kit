@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "lodash": "^4.16.2",
-    "react": "15.3.1",
+    "react": "15.2.0",
     "react-native": "0.30.0",
     "react-native-code-push": "^1.14.1-beta",
     "react-native-router-flux": "^3.35.0",
@@ -62,10 +62,9 @@
     "jsx-test-helpers": "^1.1.0",
     "nyc": "^8.3.0",
     "proxyquire": "^1.7.10",
-    "react-addons-test-utils": "^15.3.2",
-    "react-dom": "^15.3.1",
+    "react-addons-test-utils": "15.2.0",
+    "react-dom": "15.2.0",
     "react-native-mock": "^0.2.6",
-    "remotedev-server": "^0.2.0",
     "sinon": "^1.17.5",
     "wd": "^0.4.0"
   }

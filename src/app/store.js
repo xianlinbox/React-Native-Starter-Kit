@@ -1,15 +1,18 @@
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
 import propertyReducer from '../property/reducers/propertyReducer';
-import {createStore, compose} from 'redux';
+import loadingReducer from '../shared/reducers/loadingReducer';
 
-const initialState = {
-  searchString: 'london',
-  properties: [],
-  currentProperty: {}
-};
 
 const enhancer = compose(
   global.reduxNativeDevTools ? global.reduxNativeDevTools() : noop => noop
 );
 
-const store = createStore(propertyReducer, initialState, enhancer);
+const rootReducer = combineReducers({
+  loadingReducer,
+  propertyReducer
+});
+
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const store = createStoreWithMiddleware(rootReducer, {}, enhancer);
 module.exports = store;
