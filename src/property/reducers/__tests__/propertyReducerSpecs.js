@@ -9,7 +9,7 @@ test('should return origin state when actions is not handable', t => {
 
 test('should handle search action', t => {
   const expect = {
-    searchString: 'test'
+    request: 'test'
   };
   const searchAction = search('test');
   t.deepEqual(propertyReducer(undefined, searchAction), expect);

@@ -3,7 +3,9 @@ import * as _ from 'lodash';
 import {wrappedFetch as fetch} from './fetchWrapper';
 
 function findProperties(request, onSuccess, onFailure) {
+  console.log('api----', request);
   const url = _urlForQueryAndPage(request, 1);
+  console.log(url);
   return Promise.resolve()
     .then(() => fetch(url, undefined))
     .then(json => onSuccess(json.response))

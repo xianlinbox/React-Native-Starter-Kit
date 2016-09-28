@@ -1,21 +1,18 @@
-import {SEARCH, SAVE_PROPERTIES, CHECK_PROPERTY_DETAILS} from '../actions/propertyActionTypes';
+import {UPDATE_SEARCH_STRING, UPDATE_SEARCH_RESULT} from '../actions/propertyActionTypes';
 
-export default (state = {}, action = {}) => {
+export default (state = {request: {place_name: 'London'}}, action = {}) => {
+  // console.log("typr****", action.type);
+  // console.log("payload****", action.payload);
   switch (action.type) {
-    case SEARCH:
+    case UPDATE_SEARCH_STRING:
       return {
         ...state,
-        searchString: action.payload
+        request: action.payload
       };
-    case SAVE_PROPERTIES:
+    case UPDATE_SEARCH_RESULT:
       return {
         ...state,
         properties: action.payload
-      };
-    case CHECK_PROPERTY_DETAILS:
-      return {
-        ...state,
-        currentProperty: action.payload
       };
     default:
       return state;
