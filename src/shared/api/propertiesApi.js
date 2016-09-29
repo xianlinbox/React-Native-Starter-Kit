@@ -1,4 +1,4 @@
-'use strict';
+
 import * as _ from 'lodash';
 import {wrappedFetch as fetch} from './fetchWrapper';
 

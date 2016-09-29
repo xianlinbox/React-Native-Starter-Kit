@@ -26,12 +26,12 @@ Initially the boilerplate will support Android only.
 - [ ] Continuous Integration setup
 - [x] Redux
 - [x] ~~Immutable data structures~~
-- [ ] Redux middleware management strategy(**in progress**)
+- [x] Redux middleware management strategy
 - [x] Redux debugger
 - [ ] Form validation
 - [ ] Hot Reloading
 - [ ] Default app structure(**in progress**)
-- [ ] CDD with getstorybook
+- [ ] CDD with getstorybook(**in progress**)
 - [x] Navigation with react-native-router-flux
 - [ ] Persistence
 - [ ] Deep Link

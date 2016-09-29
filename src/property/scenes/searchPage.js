@@ -1,4 +1,4 @@
-'use strict';
+
 
 import React, {Component} from 'react';
 import {
@@ -11,7 +11,6 @@ import {
   Image
 } from 'react-native';
 import {connect} from 'react-redux';
-import {Actions} from "react-native-router-flux";
 import * as PropertyActions from "../actions/propertyActions";
 import styles from './styles/searchPageStyles';
 
