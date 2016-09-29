@@ -1,6 +1,8 @@
 import {UPDATE_SEARCH_STRING, UPDATE_SEARCH_RESULT} from '../actions/propertyActionTypes';
 
-export default (state = {request: {place_name: 'London'}}, action = {}) => {
+const initPropertySearchState = {request: {place_name: 'London'}};
+
+export default (state = initPropertySearchState, action = {}) => {
   // console.log("typr****", action.type);
   // console.log("payload****", action.payload);
   switch (action.type) {

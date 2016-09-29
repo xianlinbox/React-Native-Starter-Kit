@@ -3,13 +3,13 @@ import {createAction} from 'redux-actions';
 import {findProperties} from "../../shared/api/propertiesApi";
 import {startLoading, endLoading} from "../../shared/actions/loadingAction";
 import {saveErrorMessage, clearErrorMessage} from "../../shared/actions/errorAction";
-import {Actions as RouterActions} from "react-native-router-flux";
+// import {Actions as RouterActions} from "react-native-router-flux";
 
-const updateSearchString = createAction(UPDATE_SEARCH_STRING);
-const updateSearchResult = createAction(UPDATE_SEARCH_RESULT);
+export const updateSearchString = createAction(UPDATE_SEARCH_STRING);
+export const updateSearchResult = createAction(UPDATE_SEARCH_RESULT);
 
 
-export const  search = (request) => {
+export const search = (request) => {
   return dispatch => {
     dispatch(clearErrorMessage());
     dispatch(startLoading());

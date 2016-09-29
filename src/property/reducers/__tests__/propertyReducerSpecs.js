@@ -1,25 +1,29 @@
 import test from 'ava';
-import {search, checkPropertyDetails} from '../../actions/propertyActions';
+import {updateSearchString, updateSearchResult} from '../../actions/propertySearchActions';
 import propertyReducer from '../propertyReducer';
+
+const initPropertySearchState = {request: {place_name: 'London'}};
 
 test('should return origin state when actions is not handable', t => {
   const notHandableAction = {type: 'NotHand'};
-  t.deepEqual(propertyReducer(undefined, notHandableAction), {});
+
+  t.deepEqual(propertyReducer(undefined, notHandableAction), initPropertySearchState);
 });
 
 test('should handle search action', t => {
   const expect = {
     request: 'test'
   };
-  const searchAction = search('test');
+  const searchAction = updateSearchString('test');
   t.deepEqual(propertyReducer(undefined, searchAction), expect);
 });
 
 
-test('should handle checkPropertyDetails action', t => {
+test('should handle updateSearchResults action', t => {
   const expect = {
-    currentProperty: 'test'
+    request: {place_name: 'London'},
+    properties: 'test'
   };
-  const searchAction = checkPropertyDetails('test');
+  const searchAction = updateSearchResult('test');
   t.deepEqual(propertyReducer(undefined, searchAction), expect);
 });
