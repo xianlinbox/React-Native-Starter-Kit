@@ -1,6 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {ListView} from 'react-native';
 import SearchResultRowItem from '../components/searchResultRowItem';
 import {Actions as RouterActions} from "react-native-router-flux";
@@ -18,8 +18,8 @@ class SearchResults extends Component {
     };
   }
 
-  renderRow(rowProps) {
-    return <SearchResultRowItem {...rowProps} onPress={this.state.onRowPress}/>
+  renderRow(rowProps, sectionID, rowID) {
+    return <SearchResultRowItem {...rowProps} rowID={rowID} onPress={this.state.onRowPress}/>
   }
 
   render() {
@@ -42,8 +42,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    rowPressed: (property) => {
-      dispatch(PropertyActions.checkPropertyDetails(property));
+    rowPressed: (propertyIndex) => {
+      dispatch(PropertyActions.selectProperty(propertyIndex));
       RouterActions.PropertyDetails();
     }
   };

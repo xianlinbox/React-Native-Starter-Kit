@@ -1,10 +1,11 @@
 import {combineReducers} from 'redux';
-import {UPDATE_SEARCH_STRING, UPDATE_SEARCH_RESULT} from '../actions/propertyActionTypes';
+import {UPDATE_SEARCH_STRING, UPDATE_SEARCH_RESULT, SELECT_PROPERTY} from '../actions/propertyActionTypes';
 import routes from './propertyRoutesReducer';
 
 const initPropertySearchState = {request: {place_name: 'London'}};
 
 const searchReducer = (state = initPropertySearchState, action = {}) => {
+  console.log('search Action####', action);
   switch (action.type) {
     case UPDATE_SEARCH_STRING:
       return {
@@ -15,6 +16,11 @@ const searchReducer = (state = initPropertySearchState, action = {}) => {
       return {
         ...state,
         properties: action.payload
+      };
+    case SELECT_PROPERTY:
+      return {
+        ...state,
+        selectedProperty: action.payload
       };
     default:
       return state;

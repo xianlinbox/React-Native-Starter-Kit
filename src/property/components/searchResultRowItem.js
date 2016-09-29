@@ -12,9 +12,12 @@ import styles from './styles/searchResultItemRowItemStyles'
 export default function (rowData) {
   const {title, price_formatted, img_url, rowID, onPress} = rowData;
   const price = price_formatted.split(' ')[0];
-
+  console.log('RowItem____1', rowID);
   return (
-    <TouchableHighlight onPress={() => onPress(rowData)}
+    <TouchableHighlight onPress={() => {
+    console.log('RowItem____2', rowID);
+    onPress(rowID)
+    }}
                         testID={'property-' + rowID}
                         underlayColor='#dddddd'>
       <View>

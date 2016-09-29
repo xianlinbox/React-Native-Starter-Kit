@@ -1,4 +1,4 @@
-import {SEARCH, SAVE_PROPERTIES, CHECK_PROPERTY_DETAILS} from './propertyActionTypes'
+import {SEARCH, SAVE_PROPERTIES, SELECT_PROPERTY} from './propertyActionTypes'
 import { createAction } from 'redux-actions';
 
-export const checkPropertyDetails = createAction(CHECK_PROPERTY_DETAILS);
+export const selectProperty = createAction(SELECT_PROPERTY);
