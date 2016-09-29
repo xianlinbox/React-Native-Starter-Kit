@@ -42,7 +42,12 @@ class PropertyView extends Component {
 }
 
 function mapStateToProps(state) {
-  const {propertyReducer:{searchReducer:{properties, selectedProperty}}} = state;
+  const {
+    propertyReducer:{
+      searchReducer:{properties},
+      selectPropertyReducer:{selectedProperty}
+    }
+  } = state;
   return {
     property: properties[selectedProperty]
   };

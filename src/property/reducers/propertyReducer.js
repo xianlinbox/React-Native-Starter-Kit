@@ -1,33 +1,10 @@
 import {combineReducers} from 'redux';
-import {UPDATE_SEARCH_STRING, UPDATE_SEARCH_RESULT, SELECT_PROPERTY} from '../actions/propertyActionTypes';
+import searchReducer from './searchPropertyReducer';
+import selectPropertyReducer from './selectPropertyReducer';
 import routes from './propertyRoutesReducer';
 
-const initPropertySearchState = {request: {place_name: 'London'}};
-
-const searchReducer = (state = initPropertySearchState, action = {}) => {
-  console.log('search Action####', action);
-  switch (action.type) {
-    case UPDATE_SEARCH_STRING:
-      return {
-        ...state,
-        request: action.payload
-      };
-    case UPDATE_SEARCH_RESULT:
-      return {
-        ...state,
-        properties: action.payload
-      };
-    case SELECT_PROPERTY:
-      return {
-        ...state,
-        selectedProperty: action.payload
-      };
-    default:
-      return state;
-  }
-};
-
 export default combineReducers({
+  routes,
   searchReducer,
-  routes
+  selectPropertyReducer
 })

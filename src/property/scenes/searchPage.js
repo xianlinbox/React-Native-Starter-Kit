@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import {Actions} from "react-native-router-flux";
-import * as PropertyActions from "../actions/propertySearchActions";
+import * as PropertyActions from "../actions/propertyActions";
 import styles from './styles/searchPageStyles';
 
 
