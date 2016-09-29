@@ -2,6 +2,7 @@ import {UPDATE_SEARCH_STRING, UPDATE_SEARCH_RESULT} from './propertyActionTypes'
 import {createAction} from 'redux-actions';
 import {findProperties} from "../../shared/api/propertiesApi";
 import {startLoading, endLoading} from "../../shared/actions/loadingAction";
+import {saveErrorMessage, clearErrorMessage} from "../../shared/actions/errorAction";
 import {Actions as RouterActions} from "react-native-router-flux";
 
 const updateSearchString = createAction(UPDATE_SEARCH_STRING);
@@ -10,6 +11,7 @@ const updateSearchResult = createAction(UPDATE_SEARCH_RESULT);
 
 export const  search = (request) => {
   return dispatch => {
+    dispatch(clearErrorMessage());
     dispatch(startLoading());
     dispatch(updateSearchString(request));
     return findProperties(request, (result) => {
@@ -18,11 +20,11 @@ export const  search = (request) => {
         dispatch(updateSearchResult(result.listings));
         // RouterActions.SearchResults();
       } else {
-        // this.setState({message: 'Location not recognized; please try again.'});
+        dispatch(saveErrorMessage('Location not recognized; please try again.'));
       }
     }, (error) => {
       dispatch(endLoading());
-      dispatch(updateSearchResult(error))
+      dispatch(saveErrorMessage('Something bad happened ' + error));
     });
   }
 };

@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import {Actions} from "react-native-router-flux";
-import * as _ from 'lodash';
 import * as PropertyActions from "../actions/propertySearchActions";
 import styles from './styles/searchPageStyles';
 
@@ -24,7 +23,7 @@ class SearchPage extends Component {
     this.state = {
       placeName: props.request.place_name,
       isLoading: props.isLoading,
-      message: '',
+      message: props.errorMessage || '',
       search: props.search
     };
   }
@@ -54,6 +53,7 @@ class SearchPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
+      message: nextProps.errorMessage,
       request: nextProps.request,
       isLoading: nextProps.isLoading
     })
@@ -123,12 +123,13 @@ class SearchPage extends Component {
 }
 
 function mapStateToProps(state) {
-
-  const {loadingReducer, propertyReducer} = state;
+  const {loadingReducer, errorReducer, propertyReducer} = state;
+  const {errorMessage} = errorReducer;
   const {isLoading} = loadingReducer;
   const {request} = propertyReducer;
 
   return {
+    errorMessage,
     request,
     isLoading
   };
