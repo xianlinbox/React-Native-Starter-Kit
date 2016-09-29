@@ -90,3 +90,8 @@ We need to think how to design the patterns in these scenarios.
 
 ##Deep Link
 http://mp.weixin.qq.com/s?__biz=MzAwNjAzNjMyOQ==&mid=2650215008&idx=1&sn=5de38cea68bb86589680a93e679fc9d1&chksm=83103c66b467b5703c1b78d8bafc79a867a611be5672b9ed259577757fb6fa0ff8d42c954f69&scene=1&srcid=09247GuNPrKh2VyqHt6Pydxe&from=groupmessage&isappinstalled=0#wechat_redirect
+
+
+##Data Synchorisation
+https://www.objc.io/issues/10-syncing-data/data-synchronization/
+https://www.objc.io/issues/10-syncing-data/sync-case-study/

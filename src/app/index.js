@@ -4,22 +4,24 @@ import PropertyScenes from '../property/index';
 import CarScenes from '../car/index';
 import {Provider} from 'react-redux';
 import store from './store'
+import { connect } from 'react-redux';
 
 import {
-  Scene,
-  Router
+Scene,
+Router
 } from 'react-native-router-flux';
 
+const RouterWithRedux = connect()(Router);
 export default class PropertyFinder extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        <RouterWithRedux>
           <Scene key='home' tabs={true}>
             {PropertyScenes()}
             {CarScenes()}
           </Scene>
-        </Router>
+        </RouterWithRedux>
       </Provider>
     );
   }

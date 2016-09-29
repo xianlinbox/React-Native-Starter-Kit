@@ -107,7 +107,7 @@ function mapStateToProps(state) {
   const {loadingReducer, errorReducer, propertyReducer} = state;
   const {errorMessage} = errorReducer;
   const {isLoading} = loadingReducer;
-  const {request} = propertyReducer;
+  const {searchReducer:{request}} = propertyReducer;
 
   return {
     errorMessage,

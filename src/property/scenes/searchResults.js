@@ -33,8 +33,10 @@ class SearchResults extends Component {
 }
 
 function mapStateToProps(state) {
+  const {propertyReducer} = state;
+  const {searchReducer:{properties}} = propertyReducer;
   return {
-    properties: state.properties
+    properties
   };
 }
 
