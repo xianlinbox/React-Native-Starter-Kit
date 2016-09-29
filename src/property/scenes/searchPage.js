@@ -29,7 +29,7 @@ class SearchPage extends Component {
   }
 
   onSearchTextChanged(event) {
-    this.setState({request: event.nativeEvent.text});
+    this.setState({placeName: event.nativeEvent.text});
   }
 
   onLocationPressed() {
@@ -57,25 +57,6 @@ class SearchPage extends Component {
       request: nextProps.request,
       isLoading: nextProps.isLoading
     })
-  }
-
-  _handleResponse(response) {
-    const {saveSearchResults} = this.props;
-    this.setState({isLoading: false, message: ''});
-    if (response.application_response_code.substr(0, 1) === '1') {
-      saveSearchResults(response.listings);
-      Actions.SearchResults();
-    } else {
-      this.setState({message: 'Location not recognized; please try again.'});
-    }
-  }
-
-  _handleError(error) {
-    console.error(error);
-    this.setState({
-      isLoading: false,
-      message: 'Something bad happened ' + error
-    });
   }
 
   onSearchPressed() {
