@@ -1,17 +1,15 @@
-"use strict";
-
-require("../setUp");
-const wd = require("wd");
+require('../setUp');
+const wd = require('wd');
 const serverConfigs = require('../appiumServer');
 const SearchPageCreater = require('../pages/properties/searchPage');
 const SearchResultPageCreater = require('../pages/properties/searchResultPage');
 const PropertyDetailsPageCreater = require('../pages/properties/propertyDetailsPage');
 
-describe("Property", function () {
-  this.timeout(30000);
+describe('Property', function () {
   var appiumDriver;
   var PropertyDetailPage;
   var allPassed = true;
+  this.timeout(30000);
 
   before(function () {
     appiumDriver = wd.promiseChainRemote(serverConfigs.local);
@@ -28,7 +26,7 @@ describe("Property", function () {
     allPassed = allPassed && this.currentTest.state === 'passed';
   });
 
-  it("search properties in new york", () => {
+  it('search properties in new york', () => {
     const searchPage = SearchPageCreater(appiumDriver);
     return searchPage
       .fillCityName('New york')
@@ -40,7 +38,7 @@ describe("Property", function () {
       .should.eventually.exist;
   });
 
-  it("select the first property ", () => {
+  it('select the first property ', () => {
     const SearchResultPage = SearchResultPageCreater(appiumDriver);
     return SearchResultPage
       .clickFirstProperty()
@@ -48,15 +46,15 @@ describe("Property", function () {
       .should.eventually.exist;
   });
 
-  it("show first property details", () => {
+  it('show first property details', () => {
     const PropertyDetailPage = PropertyDetailsPageCreater(appiumDriver);
     return PropertyDetailPage
       .propertyTitle
       .getValue()
-      .should.eventually.eql("Castle Dyke Bank, New York, Lincoln");
+      .should.eventually.eql('Castle Dyke Bank, New York, Lincoln');
   });
 
-  it("back to search result page", () => {
+  it('back to search result page', () => {
     const PropertyDetailPage = PropertyDetailsPageCreater(appiumDriver);
     return PropertyDetailPage
       .back()
@@ -64,7 +62,7 @@ describe("Property", function () {
       .should.eventually.exist;
   });
 
-  it("select fifth property details", () => {
+  it('select fifth property details', () => {
     const SearchResultPage = SearchResultPageCreater(appiumDriver);
     return SearchResultPage
       .clickSecondProperty()
@@ -72,11 +70,11 @@ describe("Property", function () {
       .should.eventually.exist;
   });
 
-  it("show fifth property details", () => {
+  it('show fifth property details', () => {
     const PropertyDetailPage = PropertyDetailsPageCreater(appiumDriver);
     return PropertyDetailPage
       .propertyTitle
       .getValue()
-      .should.eventually.eql("Castle Dyke Bank, New York, Lincoln");
+      .should.eventually.eql('Castle Dyke Bank, New York, Lincoln');
   });
 });

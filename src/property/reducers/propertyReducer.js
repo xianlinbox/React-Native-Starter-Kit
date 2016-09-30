@@ -6,5 +6,5 @@ import routes from './propertyRoutesReducer';
 export default combineReducers({
   routes,
   searchReducer,
-  selectPropertyReducer
-})
+  selectPropertyReducer,
+});

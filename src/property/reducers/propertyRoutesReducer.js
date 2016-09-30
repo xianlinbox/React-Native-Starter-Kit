@@ -9,7 +9,7 @@ export default function reducer(state = initialState, action = {}) {
     case ActionConst.FOCUS:
       return {
         ...state,
-        scene: action.scene
+        scene: action.scene,
       };
     default:
       return state;

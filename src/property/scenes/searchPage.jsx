@@ -2,16 +2,15 @@
 
 import React, {Component} from 'react';
 import {
-  StyleSheet,
   Text,
   TextInput,
   View,
   TouchableHighlight,
   ActivityIndicator,
-  Image
+  Image,
 } from 'react-native';
 import {connect} from 'react-redux';
-import * as PropertyActions from "../actions/propertyActions";
+import * as PropertyActions from '../actions/propertyActions';
 import styles from './styles/searchPageStyles';
 
 
@@ -23,7 +22,7 @@ class SearchPage extends Component {
       placeName: props.request.place_name,
       isLoading: props.isLoading,
       message: props.errorMessage || '',
-      search: props.search
+      search: props.search,
     };
   }
 
@@ -34,19 +33,19 @@ class SearchPage extends Component {
   onLocationPressed() {
     navigator.geolocation.getCurrentPosition(
       location => {
-        var search = location.coords.latitude + ',' + location.coords.longitude;
+        var search = `${location.coords.latitude},${location.coords.longitude}`;
         this.setState({request: search});
         PropertyActions.search(search);
-        this._executeQuery({'centre_point': search});
+        this.executeQuery({centre_point: search});
       },
       error => {
         this.setState({
-          message: 'There was a problem with obtaining your location: ' + error
+          message: `There was a problem with obtaining your location: ${error}`,
         });
       });
   }
 
-  _executeQuery(request) {
+  executeQuery(request) {
     this.props.search(request);
   }
 
@@ -54,12 +53,12 @@ class SearchPage extends Component {
     this.setState({
       message: nextProps.errorMessage,
       request: nextProps.request,
-      isLoading: nextProps.isLoading
+      isLoading: nextProps.isLoading,
     })
   }
 
   onSearchPressed() {
-    this._executeQuery({place_name: this.state.placeName});
+    this.executeQuery({place_name: this.state.placeName});
   }
 
   render() {
@@ -77,14 +76,14 @@ class SearchPage extends Component {
           <TextInput
             style={styles.searchInput}
             accessible={true}
-            accessibilityLabel="CityName"
-            name="city"
+            accessibilityLabel='CityName'
+            name='city'
             value={this.state.placeName}
             onChange={this.onSearchTextChanged.bind(this)}
-            placeholder='Search via name or postcode'/>
+            placeholder='Search via name or postcode' />
           <TouchableHighlight style={styles.button}
                               underlayColor='#99d9f4'
-                              testID="SearchButton"
+                              testID='SearchButton'
                               onPress={this.onSearchPressed.bind(this)}>
             <Text style={styles.buttonText}>Go</Text>
           </TouchableHighlight>
@@ -111,7 +110,7 @@ function mapStateToProps(state) {
   return {
     errorMessage,
     request,
-    isLoading
+    isLoading,
   };
 }
 

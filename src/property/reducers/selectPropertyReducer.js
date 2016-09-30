@@ -5,7 +5,7 @@ export default (state = {}, action = {}) => {
     case SELECT_PROPERTY:
       return {
         ...state,
-        selectedProperty: action.payload
+        selectedProperty: action.payload,
       };
     default:
       return state;

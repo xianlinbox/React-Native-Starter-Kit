@@ -1,10 +1,8 @@
 function wrappedFetch(url, headers) {
   return fetch(url, headers)
-    .then(response => {
-      return response.json();
-    });
-};
+    .then(response => response.json());
+}
 
 module.exports = {
-  wrappedFetch
+  wrappedFetch,
 };

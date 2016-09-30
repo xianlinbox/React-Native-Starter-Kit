@@ -5,22 +5,22 @@ module.exports = StyleSheet.create({
     marginBottom: 20,
     fontSize: 18,
     textAlign: 'center',
-    color: '#656565'
+    color: '#656565',
   },
   container: {
     padding: 30,
     marginTop: 65,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   flowRight: {
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
   },
   buttonText: {
     fontSize: 18,
     color: 'white',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   button: {
     height: 36,
@@ -32,7 +32,7 @@ module.exports = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 10,
     alignSelf: 'stretch',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   searchInput: {
     height: 36,
@@ -43,10 +43,10 @@ module.exports = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#48BBEC',
     borderRadius: 8,
-    color: '#48BBEC'
+    color: '#48BBEC',
   },
   image: {
     width: 217,
-    height: 138
-  }
+    height: 138,
+  },
 });

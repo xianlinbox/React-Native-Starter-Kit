@@ -7,12 +7,12 @@ export default (state = initPropertySearchState, action = {}) => {
     case UPDATE_SEARCH_STRING:
       return {
         ...state,
-        request: action.payload
+        request: action.payload,
       };
     case UPDATE_SEARCH_RESULT:
       return {
         ...state,
-        properties: action.payload
+        properties: action.payload,
       };
     default:
       return state;

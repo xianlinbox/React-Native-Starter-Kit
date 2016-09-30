@@ -1,5 +1,3 @@
-
-
 import React, {Component} from 'react';
 import {
   Image,
@@ -15,7 +13,7 @@ class PropertyView extends Component {
 
   render() {
     var property = this.props.property;
-    var stats = property.bedroom_number + ' bed ' + property.property_type;
+    var stats = `${property.bedroom_number} bed ${property.property_type}`;
     if (property.bathroom_number) {
       stats += ', ' + property.bathroom_number + ' ' + (property.bathroom_number > 1
           ? 'bathrooms' : 'bathroom');
@@ -26,18 +24,18 @@ class PropertyView extends Component {
     return (
       <View style={atomicStyles.container}>
         <Image style={styles.image}
-               source={{uri: property.img_url}}/>
+               source={{uri: property.img_url}} />
         <View style={styles.heading}>
           <Text style={styles.price}>£{price}</Text>
-          <Text style={styles.title} testID="PropertyTitle">
+          <Text style={styles.title} testID='PropertyTitle'>
             {property.title}
           </Text>
-          <View style={styles.separator}/>
+          <View style={styles.separator} />
         </View>
         <Text style={styles.description}>{stats}</Text>
         <Text style={styles.description}>{property.summary}</Text>
       </View>
-    );
+    );  
   }
 }
 
@@ -49,7 +47,7 @@ function mapStateToProps(state) {
     }
   } = state;
   return {
-    property: properties[selectedProperty]
+    property: properties[selectedProperty],
   };
 }
 

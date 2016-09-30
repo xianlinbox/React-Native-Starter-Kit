@@ -5,14 +5,14 @@ export default (state = {}, action = {}) => {
     case SAVE_ERROR_MESSAGE:
       return {
         ...state,
-        errorMessage: action.payload
+        errorMessage: action.payload,
       };
     case CLEAR_ERROR_MESSAGE:
       return {
         ...state,
-        errorMessage: undefined
+        errorMessage: undefined,
       };
     default:
       return state;
   }
-}
+};

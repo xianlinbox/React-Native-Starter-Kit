@@ -1,25 +1,21 @@
-
 import React from 'react';
 import {
   Image,
   View,
   TouchableHighlight,
-  Text
+  Text,
 } from 'react-native';
 
-import styles from './styles/searchResultItemRowItemStyles'
+import styles from './styles/searchResultItemRowItemStyles';
 
 export default function (rowData) {
   const {title, price_formatted, img_url, rowID, onPress} = rowData;
   const price = price_formatted.split(' ')[0];
-  console.log('RowItem____1', rowID);
   return (
-    <TouchableHighlight onPress={() => {
-    console.log('RowItem____2', rowID);
-    onPress(rowID)
-    }}
-                        testID={'property-' + rowID}
-                        underlayColor='#dddddd'>
+    <TouchableHighlight
+      onPress={() => onPress(rowID)}
+      testID={'property-' + rowID}
+      underlayColor='#dddddd'>
       <View>
         <View style={styles.rowContainer}>
           <Image style={styles.thumb} source={{ uri: img_url }}/>
@@ -28,7 +24,7 @@ export default function (rowData) {
             <Text style={styles.title} numberOfLines={1}>{title}</Text>
           </View>
         </View>
-        <View style={styles.separator}/>
+        <View style={styles.separator }/>
       </View>
     </TouchableHighlight>
   );
