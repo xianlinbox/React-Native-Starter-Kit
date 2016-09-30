@@ -10,7 +10,8 @@
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "bundle-iOS": "react-native bundle --platform ios --entry-file index.ios.js --bundle-output ./ios/index.ios.bundle --assets-dest ./release --dev false",
     "flow": "flow check",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "storybook": "storybook start -p 7007"
   },
   "ava": {
     "babel": "inherit",
@@ -44,6 +45,7 @@
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "@kadira/react-native-storybook": "^2.0.0",
     "appium": "^1.5.3",
     "ava": "^0.16.0",
     "babel-core": "^6.14.0",
@@ -58,6 +60,7 @@
     "eslint-plugin-react": "^6.3.0",
     "express": "^4.14.0",
     "flow-bin": "^0.27.0",
+    "getstorybook": "^1.4.5",
     "jsdom": "^9.5.0",
     "jsx-test-helpers": "^1.1.0",
     "nyc": "^8.3.0",
@@ -66,6 +69,7 @@
     "react-dom": "15.2.0",
     "react-native-mock": "^0.2.6",
     "sinon": "^1.17.5",
-    "wd": "^0.4.0"
+    "wd": "^0.4.0",
+    "ws": "^1.1.1"
   }
 }

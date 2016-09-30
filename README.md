@@ -44,7 +44,6 @@ Initially the boilerplate will support Android only.
 - [redux-actions](https://github.com/acdlite/redux-actions)
 - [redux-thunk](https://github.com/acdlite/redux-actions)
 - [babeljs](https://babeljs.io/)
-- [immutablejs](http://facebook.github.io/immutable-js)
 - [eslint](http://eslint.org/)
 - [ava](https://github.com/avajs/ava)
 - [nyc](https://github.com/istanbuljs/nyc)
@@ -95,3 +94,6 @@ http://mp.weixin.qq.com/s?__biz=MzAwNjAzNjMyOQ==&mid=2650215008&idx=1&sn=5de38ce
 ##Data Synchorisation
 https://www.objc.io/issues/10-syncing-data/data-synchronization/
 https://www.objc.io/issues/10-syncing-data/sync-case-study/
+
+##Component Driven Development
+
