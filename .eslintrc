@@ -1,6 +1,8 @@
 {
-  "extends": "airbnb",
-  "rules": {
-    "object-curly-spacing": [0, "never"]
+  "extends": "eslint:recommended",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
   }
 }
