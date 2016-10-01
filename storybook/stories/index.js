@@ -2,10 +2,13 @@ import React from 'react';
 import {Text} from 'react-native';
 import {storiesOf, action, linkTo} from '@kadira/react-native-storybook';
 
+import {properties} from './fakeData/properties';
+
 import TabIcon from '../../src/shared/components/tabIcon';
 import SearchResultRowItem from '../../src/property/components/searchResultRowItem';
 import SearchPage from '../../src/property/components/searchPage';
 import SearchResultsPage from '../../src/property/components/searchResultsPage';
+import PropertyDetailsPage from '../../src/property/components/propertyDetailsPage';
 
 storiesOf('Home', module)
   .add('tabIcon', () => (
@@ -18,19 +21,11 @@ storiesOf('Property', module)
   ))
   .add('SearchResultsPage', () => (
     <SearchResultsPage
-      properties={[
-      {
-      title:"Property -1",
-      price_formatted:"$100,000",
-      img_url:'../../src/shared/resources/house',
-      },
-      {
-      title:"Property -2",
-      price_formatted:"$200,000",
-      img_url:'../../src/shared/resources/house'
-      }
-    ]}
+      properties={properties}
       rowPressed={({rowID}) => {console.log(`click ${rowID} row`)}}/>
+  ))
+  .add('PropertyDetailsPage', () => (
+    <PropertyDetailsPage property={properties[0]}/>
   ))
   .add('SearchResultItem', () => (
     <SearchResultRowItem
