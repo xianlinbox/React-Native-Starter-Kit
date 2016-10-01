@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {ListView} from 'react-native';
@@ -21,14 +22,14 @@ class SearchResults extends Component {
     return <SearchResultRowItem {...rowProps} rowID={rowID} onPress={this.state.onRowPress} />;
   }
 
-  render() {
-    return (
-      <ListView
-        style={atomicStyles.container}
-        dataSource={this.state.dataSource}
-        renderRow={this.renderRow.bind(this)} />
-    );
-  }
+render() {
+  return (
+    <ListView
+      style={atomicStyles.container}
+      dataSource={this.state.dataSource}
+      renderRow={this.renderRow.bind(this)} />
+  );
+}
 }
 
 function mapStateToProps(state) {
