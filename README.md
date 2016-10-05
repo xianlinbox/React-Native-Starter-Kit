@@ -29,9 +29,9 @@ Initially the boilerplate will support Android only.
 - [x] Redux middleware management strategy
 - [x] Redux debugger
 - [ ] Form validation
-- [ ] Hot Reloading
+- [ ] Hot Reloading(**in progress**)
 - [ ] Default app structure(**in progress**)
-- [ ] CDD with getstorybook(**in progress**)
+- [x] CDD with getstorybook
 - [x] Navigation with react-native-router-flux
 - [ ] Persistence
 - [ ] Deep Link
