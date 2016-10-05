@@ -96,6 +96,12 @@ https://www.objc.io/issues/10-syncing-data/data-synchronization/
 https://www.objc.io/issues/10-syncing-data/sync-case-study/
 
 ##Component Driven Development
+an article is working in progress...
+
+##Hot Reloading
+https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html
+http://www.sqshi.com/a/273476.html
+
 
 
 
