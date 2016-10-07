@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import PropertyScenes from '../property/index';
 import CarScenes from '../car/index';
 import {Provider} from 'react-redux';
-import store from './store'
+import configStore from './configStore'
 import { connect } from 'react-redux';
 
 import {
@@ -15,7 +15,7 @@ const RouterWithRedux = connect()(Router);
 export default class PropertyFinder extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={configStore()}>
         <RouterWithRedux>
           <Scene key='home' tabs={true}>
             {PropertyScenes()}
