@@ -18,7 +18,7 @@ The React Native starter kit which included all the best practises(I thought) sh
 
 
 ## Progress
-Initially the boilerplate will support Android only.
+Initially the boilerplate will support iOS only.
 
 - [x] Unit Testing setup with ava, enzyme
 - [x] Code coverage with nyc
@@ -108,6 +108,8 @@ React Native中实现了React Component的Hot Loading, 只需要开发者自己�
 
 https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html
 http://www.jianshu.com/p/1fa6e9c0799f（中文版）
+
+关于Redux reducer的Hot Reloading, 参见：https://github.com/reactjs/react-redux/releases/tag/v2.0.0
 
 
 
