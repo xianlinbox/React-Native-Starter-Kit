@@ -23,13 +23,13 @@ Initially the boilerplate will support Android only.
 - [x] Unit Testing setup with ava, enzyme
 - [x] Code coverage with nyc
 - [x] Automated acceptance testing setup with appium
-- [ ] Continuous Integration setup
+- [ ] Continuous Delivery pipeline setup(**in progress**)
 - [x] Redux
 - [x] ~~Immutable data structures~~
 - [x] Redux middleware management strategy
 - [x] Redux debugger
 - [ ] Form validation
-- [ ] Hot Reloading(**in progress**)
+- [x] Hot Reloading
 - [ ] Default app structure(**in progress**)
 - [x] CDD with getstorybook
 - [x] Navigation with react-native-router-flux
