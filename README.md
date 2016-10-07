@@ -100,7 +100,11 @@ an article is working in progress...
 
 ##Hot Reloading
 开发中的很大一部分时间，都花在了保存文件到检查 UI 是否有变化的过程中，特别是对于一些路径特别长的功能或者界面。典型的一个场景就是某个功能界面，距离启动界面有多个层级，当应用重新启动之后，你需要多次点击，有时甚至需要输入一些数据，最后才能到达之前的功能界面。而 Hot Reloading 就是这样一个特性，开启这个特性之后，你可在当前界面重新加载，并且保持应用之前的状态，这将极大地提高开发效率。
-简而言之，Hot Reloading 这个特性，可以保持应用的持续运行，不丢失应用的状态，实时地注入最新的代码。关于React Native实现Hot Reloading的原理,参见下面的文章:
+简而言之，Hot Reloading 这个特性，可以保持应用的持续运行，不丢失应用的状态，实时地注入最新的代码。
+
+React Native中实现了React Component的Hot Loading, 只需要开发者自己打开就行, 如果要支持Redux架构下的reducer的Hot Reloading就需要开发者自己添加代码。
+
+关于React Native实现Hot Reloading的原理,参见下面的文章:
 
 https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html
 http://www.jianshu.com/p/1fa6e9c0799f（中文版）

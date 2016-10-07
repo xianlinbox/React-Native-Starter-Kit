@@ -24,11 +24,11 @@ export default function configStore() {
   const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
   const store = createStoreWithMiddleware(rootReducer, {}, enhancer);
 
-  // if (module.hot) {
-  //   module.hot.accept(() => {
-  //     const nextRootReducer = initReducers();
-  //     store.replaceReducer(nextRootReducer);
-  //   });
-  // }
+  if (module.hot) {
+    module.hot.accept(() => {
+      const nextRootReducer = initReducers();
+      store.replaceReducer(nextRootReducer);
+    });
+  }
   return store
 }
