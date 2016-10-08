@@ -35,6 +35,7 @@ Initially the boilerplate will support iOS only.
 - [x] Navigation with react-native-router-flux
 - [ ] Persistence
 - [ ] Deep Link
+- [ ] Data Collection
 
 ## Libraries
 - [React Native](https://facebook.github.io/react-native/)

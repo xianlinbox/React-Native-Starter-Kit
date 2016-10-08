@@ -1,17 +1,11 @@
 import {CLEAR_ERROR_MESSAGE, SAVE_ERROR_MESSAGE} from '../actions/sharedActionTypes';
 
-export default (state = {}, action = {}) => {
+export default (state = '', action = {}) => {
   switch (action.type) {
     case SAVE_ERROR_MESSAGE:
-      return {
-        ...state,
-        errorMessage: action.payload,
-      };
+      return action.payload;
     case CLEAR_ERROR_MESSAGE:
-      return {
-        ...state,
-        errorMessage: undefined,
-      };
+      return '';
     default:
       return state;
   }

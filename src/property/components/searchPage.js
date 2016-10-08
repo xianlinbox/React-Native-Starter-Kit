@@ -58,7 +58,6 @@ export default class SearchPage extends Component {
   }
 
   render() {
-    console.log('render...', this.state.placeName);
     const spinner = this.state.isLoading ? ( <ActivityIndicator size='large'/> ) : null;
 
     return (

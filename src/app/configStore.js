@@ -8,9 +8,9 @@ function initReducers() {
   const errorReducer = require('../shared/reducers/errorReducer').default;
 
   return combineReducers({
-    errorReducer,
-    loadingReducer,
-    propertyReducer
+    errorMessage: errorReducer,
+    isLoading: loadingReducer,
+    property: propertyReducer
   });
 }
 

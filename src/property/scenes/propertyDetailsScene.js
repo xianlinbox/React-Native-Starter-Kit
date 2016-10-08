@@ -3,9 +3,9 @@ import PropertyDetatisPage from '../components/propertyDetailsPage';
 
 function mapStateToProps(state) {
   const {
-    propertyReducer:{
-      searchReducer:{properties},
-      selectPropertyReducer:{selectedProperty}
+    property:{
+      search:{properties},
+      selectedProperty
     }
   } = state;
   return {

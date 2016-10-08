@@ -4,8 +4,8 @@ import * as PropertyActions from '../actions/propertyActions';
 import SearchResults from '../components/searchResultsPage';
 
 function mapStateToProps(state) {
-  const {propertyReducer} = state;
-  const {searchReducer:{properties}} = propertyReducer;
+  const {property} = state;
+  const {search:{properties}} = property;
   return {
     properties,
   };

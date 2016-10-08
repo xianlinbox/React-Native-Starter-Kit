@@ -3,10 +3,8 @@ import * as PropertyActions from '../actions/propertyActions';
 import SearchPage from '../components/searchPage';
 
 function mapStateToProps(state) {
-  const {loadingReducer, errorReducer, propertyReducer} = state;
-  const {errorMessage} = errorReducer;
-  const {isLoading} = loadingReducer;
-  const {searchReducer:{request}} = propertyReducer;
+  const {isLoading, errorMessage, property} = state;
+  const {search:{request}} = property;
 
   return {
     errorMessage,

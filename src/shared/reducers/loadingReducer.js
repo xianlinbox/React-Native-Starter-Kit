@@ -3,18 +3,12 @@ import {
   END_LOADING,
 } from '../actions/sharedActionTypes';
 
-export default (state = {isLoading: false}, action = {}) => {
+export default (state = false, action = {}) => {
   switch (action.type) {
     case START_LAODING:
-      return {
-        ...state,
-        isLoading: true,
-      };
+      return true;
     case END_LOADING:
-      return {
-        ...state,
-        isLoading: false,
-      };
+      return false;
     default:
       return state;
   }
