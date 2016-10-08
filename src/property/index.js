@@ -1,9 +1,9 @@
 import React from 'react';
 import {Scene} from 'react-native-router-flux';
 import TabIcon from '../shared/components/tabIcon';
-import Search from './scenes/searchPage';
-import SearchResults from './scenes/searchResults';
-import PropertyView from './scenes/propertyView';
+import Search from './scenes/searchScene';
+import SearchResults from './scenes/searchResultsScene';
+import PropertyView from './scenes/propertyDetailsScene';
 
 export default () => {
   return (
