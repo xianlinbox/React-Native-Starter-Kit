@@ -1,41 +1,7 @@
-import React, {Component} from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Navigator,
-  Text,
-  View
-} from 'react-native';
-const SearchPage = require('./src/property/scenes/searchPage');
+//@todo remove when RN upstream is fixed
+console.ignoredYellowBox = ['Warning: You are manually calling a React.PropTypes validation'];
 
-class PropertyFinder extends Component {
-  render() {
-    let defaultName = 'SearchPage';
-    let defaultComponent = SearchPage;
-    return (
-      <Navigator
-        initialRoute={{ name: defaultName, component: defaultComponent }}
-        configureScene={(route) => {
-                return Navigator.SceneConfigs.VerticalDownSwipeJump;
-              }}
-        renderScene={(route, navigator) => {
-                let Component = route.component;
-                return <Component {...route.params} navigator={navigator} />
-              }} />
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  text: {
-    color: 'black',
-    backgroundColor: 'white',
-    fontSize: 30,
-    margin: 80
-  }
-});
+import { AppRegistry } from 'react-native';
+import PropertyFinder from './src/app/index';
 
 AppRegistry.registerComponent('PropertyFinder', () => PropertyFinder);

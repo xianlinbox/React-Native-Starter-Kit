@@ -18,7 +18,7 @@ The React Native starter kit which included all the best practises(I thought) sh
 
 
 ## Progress
-Initially the boilerplate will support iOS only.
+Initially the boilerplate will support iOS & Android.
 
 - [x] Unit Testing setup with ava, enzyme
 - [x] Code coverage with nyc
