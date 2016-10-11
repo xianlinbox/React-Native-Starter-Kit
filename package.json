@@ -9,7 +9,7 @@
     "watch:test": "npm run test -- --watch",
     "cover": "nyc npm run test",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
-    "bundle-iOS": "react-native bundle --platform ios --entry-file index.ios.js --bundle-output ./ios/index.ios.bundle --assets-dest ./release --dev false",
+    "bundle-iOS": "react-native bundle --platform ios --entry-file index.ios.js --bundle-output ./bundles/index.ios.bundle --assets-dest ./release --dev false",
     "flow": "flow check",
     "lint": "eslint ./src",
     "storybook": "storybook start -p 7007"
