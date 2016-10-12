@@ -1,6 +1,6 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
-
+import { reducer as formReducer } from 'redux-form';
 
 function initReducers() {
   const propertyReducer = require('../property/reducers/propertyReducer').default;
@@ -10,7 +10,8 @@ function initReducers() {
   return combineReducers({
     errorMessage: errorReducer,
     isLoading: loadingReducer,
-    property: propertyReducer
+    property: propertyReducer,
+    carSearchForm: formReducer,
   });
 }
 

@@ -115,7 +115,12 @@ http://www.jianshu.com/p/1fa6e9c0799f（中文版）
 
 
 ## Common And Import Components
+
 ###Form
+In Native field,  we don't have the concept of Form, all the form is just a normal view, so React Native didn't have Form Components.
+That means all the form UI code should follow Native UI style, use View, Text, TextInput to construct UI. But we can use Redux-form
+to format reducer, validtor for Forms.
+
 ####How to create a form
 ####How to combine form stat with Redux
 ####How to do validation about Form Input
