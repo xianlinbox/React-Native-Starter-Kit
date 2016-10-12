@@ -51,6 +51,7 @@ Initially the boilerplate will support iOS & Android.
 - [sinon](http://sinonjs.org/)
 - [Enzyme](http://airbnb.io/enzyme/)
 - [getstorybook](https://github.com/kadirahq/react-native-storybook)
+- [redux-form](https://github.com/erikras/redux-form)
 - And more
 
 ##Immutable
@@ -112,6 +113,12 @@ http://www.jianshu.com/p/1fa6e9c0799f（中文版）
 
 关于Redux reducer的Hot Reloading, 参见：https://github.com/reactjs/react-redux/releases/tag/v2.0.0
 
+
+## Common And Import Components
+###Form
+####How to create a form
+####How to combine form stat with Redux
+####How to do validation about Form Input
 
 
 
