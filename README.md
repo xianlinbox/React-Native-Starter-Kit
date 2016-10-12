@@ -28,9 +28,9 @@ Initially the boilerplate will support iOS & Android.
 - [x] ~~Immutable data structures~~
 - [x] Redux middleware management strategy
 - [x] Redux debugger
-- [ ] Form validation
+- [ ] Form validation(**in progress**)
 - [x] Hot Reloading
-- [ ] Default app structure(**in progress**)
+- [x] Default app structure
 - [x] CDD with getstorybook
 - [x] Navigation with react-native-router-flux
 - [ ] Persistence
