@@ -11,7 +11,7 @@ function initReducers() {
     errorMessage: errorReducer,
     isLoading: loadingReducer,
     property: propertyReducer,
-    carSearchForm: formReducer,
+    forms: formReducer,
   });
 }
 

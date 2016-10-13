@@ -4,6 +4,11 @@ import TabIcon from '../shared/components/tabIcon';
 import Search from './scenes/searchScene';
 import SearchResults from './scenes/searchResultsScene';
 import PropertyView from './scenes/propertyDetailsScene';
+import {themeBlue} from '../shared/styles/brandColors'
+
+const navigationBarStyle = {
+  backgroundColor: themeBlue
+}
 
 export default () => {
   return (
@@ -11,7 +16,7 @@ export default () => {
            initial={true}
            title='Property'
            icon={TabIcon}
-           navigationBarStyle={{backgroundColor:'red'}}
+           navigationBarStyle={navigationBarStyle}
            titleStyle={{color:'white'}}>
       <Scene key='Search' component={Search} title='Search'/>
       <Scene key='SearchResults' component={SearchResults} title='Results'/>

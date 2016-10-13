@@ -1,0 +1,1 @@
+export const themeBlue = '#48BBEC';
