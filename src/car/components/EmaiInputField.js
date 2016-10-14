@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
   TextInput,
-  StyleSheet,
 } from 'react-native';
 import {textInput} from '../../shared/styles/atomicStyles'
 

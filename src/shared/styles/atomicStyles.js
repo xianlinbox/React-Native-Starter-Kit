@@ -14,6 +14,5 @@ module.exports = StyleSheet.create({
     borderWidth: 1,
     borderColor: themeBlue,
     borderRadius: 8,
-    color: themeBlue,
   },
 });

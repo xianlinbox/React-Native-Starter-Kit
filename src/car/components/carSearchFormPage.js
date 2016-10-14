@@ -9,6 +9,7 @@ import {
 import {Field} from 'redux-form'
 import EmailInputField from './emaiInputField'
 import NameInputField from './nameInputField'
+import BirthDateInputField from './birthDateInputField.ios'
 import {themeBlue} from '../../shared/styles/brandColors'
 
 const styles = StyleSheet.create({
@@ -73,10 +74,7 @@ export default class CarSearchForm extends Component {
           <Text style={styles.label}>Email:</Text>
           <Field name="email" placeHolder="Email" component={EmailInputField}/>
         </View>
-        <View style={styles.row}>
-          <Text style={styles.label}>Birth:</Text>
-          <Field name="email" placeHolder="Email" component={EmailInputField}/>
-        </View>
+        <Field style={styles.row} name="birthDate" component={BirthDateInputField}/>
         <TouchableHighlight style={styles.button}
                             type="submit"
                             onPress={handleSubmit(this.submit)}
