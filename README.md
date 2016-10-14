@@ -52,6 +52,7 @@ Initially the boilerplate will support iOS & Android.
 - [Enzyme](http://airbnb.io/enzyme/)
 - [getstorybook](https://github.com/kadirahq/react-native-storybook)
 - [redux-form](https://github.com/erikras/redux-form)
+- [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 - And more
 
 ##Immutable
