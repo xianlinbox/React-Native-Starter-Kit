@@ -7,7 +7,7 @@ import WithLabel from './withLabel'
 
 export default class EmailField extends Component {
   render() {
-    const {input: {onChange}, ...otherProps} = this.props;
+    const {input: {onChange}} = this.props;
     return (
       <WithLabel style={this.props.style} label={this.props.label}>
         <TextInput
