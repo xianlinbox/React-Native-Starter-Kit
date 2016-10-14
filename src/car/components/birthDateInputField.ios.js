@@ -23,7 +23,7 @@ export default class BirthDateInputField extends Component {
 
   render() {
     return (
-      <WithLabel style={this.props.style} label="Birth: ">
+      <WithLabel style={this.props.style} label={this.props.label}>
         <Text style={textInput}>{this.state.date.toLocaleDateString()}</Text>
       </WithLabel>
     );

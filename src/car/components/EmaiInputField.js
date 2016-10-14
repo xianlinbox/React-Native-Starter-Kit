@@ -3,18 +3,21 @@ import {
   TextInput,
 } from 'react-native';
 import {textInput} from '../../shared/styles/atomicStyles'
+import WithLabel from './withLabel'
 
 export default class EmailField extends Component {
   render() {
     const {input: {onChange}, ...otherProps} = this.props;
     return (
-      <TextInput
-        keyboardType="email-address"
-        style={textInput}
-        placeholder="Email"
-        onChangeText={(value) => onChange(value)}
-        {...otherProps}
-      />
+      <WithLabel style={this.props.style} label={this.props.label}>
+        <TextInput
+          keyboardType="email-address"
+          style={textInput}
+          placeholder="Email"
+          onChangeText={(value) => onChange(value)}
+        />
+      </WithLabel>
+
     );
   }
 }
