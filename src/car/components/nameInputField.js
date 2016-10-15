@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+  Text,
   TextInput,
   StyleSheet,
 } from 'react-native';
@@ -8,7 +9,8 @@ import WithLabel from './withLabel'
 
 export default class NameInputField extends Component {
   render() {
-    const {input: {onChange}, ...otherProps} = this.props;
+    console.log(this.props);
+    const {input: {onChange}} = this.props;
     return (
       <WithLabel style={this.props.style} label={this.props.label}>
         <TextInput
@@ -16,6 +18,7 @@ export default class NameInputField extends Component {
           placeholder="Name"
           onChangeText={(value) => onChange(value)}
         />
+        {this.props.touched && this.props.error && <span>{this.props.error}</span>}
       </WithLabel>
     );
   }
