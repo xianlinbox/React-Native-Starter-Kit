@@ -59,16 +59,17 @@ export default class CarSearchForm extends Component {
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     return sleep(1000)
       .then(() => {
-        window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+        window.alert(`You submitted:\n\n${JSON.stringify(this.props.initialValues, null, 2)}`);
       })
   }
 
   render() {
-    const {handleSubmit} = this.props;
+    console.log('page-', this.props);
+    const {handleSubmit, initialValues} = this.props;
     return (
       <View style={styles.container}>
-        <Field name="name" label="Name:" style={styles.row}  component={NameInputField}/>
-        <Field name="email" label="Email:" style={styles.row} component={EmailInputField}/>
+        <Field name="name" label="Name:"  initValue={initialValues && initialValues.name} style={styles.row} component={NameInputField}/>
+        <Field name="email" label="Email:" initValue={initialValues && initialValues.email} style={styles.row} component={EmailInputField}/>
         <Field name="birthDate" label="Birth:" style={styles.row} component={BirthDateInputField}/>
         <Field name="gender" style={styles.row} component={GenderField}/>
         <TouchableHighlight style={styles.button}

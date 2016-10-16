@@ -8,17 +8,22 @@ import {textInput} from '../../shared/styles/atomicStyles'
 import WithLabel from './withLabel'
 
 export default class NameInputField extends Component {
+
   render() {
-    console.log(this.props);
-    const {input: {onChange}} = this.props;
+    console.log('conect-props:',this.props);
+    const {input: {onChange}, meta:{touched, error}, initValue} = this.props;
+    console.log('connect-',initValue);
     return (
       <WithLabel style={this.props.style} label={this.props.label}>
         <TextInput
           style={textInput}
           placeholder="Name"
-          onChangeText={(value) => onChange(value)}
+          value={initValue}
+          onChangeText={(value) => {
+            onChange(value);
+          }}
         />
-        {this.props.touched && this.props.error && <span>{this.props.error}</span>}
+        {touched && error && <span>{error}</span>}
       </WithLabel>
     );
   }

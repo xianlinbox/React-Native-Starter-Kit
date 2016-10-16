@@ -1,6 +1,6 @@
 const validate = values => {
-  console.log(values);
   const errors = {}
+  console.log(values);
   if (!values.name) {
     errors.name = 'Required'
   } else if (values.username.length > 15) {
