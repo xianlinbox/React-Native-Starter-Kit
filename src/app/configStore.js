@@ -1,6 +1,7 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
-import { reducer as formReducer } from 'redux-form';
+import createLogger from 'redux-logger';
+import {reducer as formReducer} from 'redux-form';
 
 function initReducers() {
   const propertyReducer = require('../property/reducers/propertyReducer').default;
@@ -15,6 +16,8 @@ function initReducers() {
   });
 }
 
+const logger = createLogger();
+
 export default function configStore() {
   const enhancer = compose(
     global.reduxNativeDevTools ? global.reduxNativeDevTools() : noop => noop
@@ -22,7 +25,7 @@ export default function configStore() {
 
   const rootReducer = initReducers();
 
-  const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+  const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
   const store = createStoreWithMiddleware(rootReducer, {}, enhancer);
 
   if (module.hot) {
