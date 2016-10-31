@@ -36,6 +36,7 @@ Initially the boilerplate will support iOS & Android.
 - [ ] Persistence
 - [ ] Deep Link
 - [ ] Data Collection
+- [ ] Mix Native with React Native
 
 ## Libraries
 - [React Native](https://facebook.github.io/react-native/)
