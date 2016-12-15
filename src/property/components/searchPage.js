@@ -76,7 +76,7 @@ export default class SearchPage extends Component {
             name='city'
             value={this.state.placeName}
             onChange={this.onSearchTextChanged.bind(this)}
-            placeholder='Search via name or postcode' />
+            placeholder='Search via name or postcode'/>
           <TouchableHighlight style={styles.button}
                               underlayColor='#99d9f4'
                               testID='SearchButton'
@@ -84,11 +84,14 @@ export default class SearchPage extends Component {
             <Text style={styles.buttonText}>Go</Text>
           </TouchableHighlight>
         </View>
-        <TouchableHighlight style={styles.button}
-                            onPress={this.onLocationPressed.bind(this)}
-                            underlayColor='#99d9f4'>
-          <Text style={styles.buttonText}>Location</Text>
-        </TouchableHighlight>
+        <View style={styles.flowRight}>
+          <TouchableHighlight style={styles.button}
+                              onPress={this.onLocationPressed.bind(this)}
+                              underlayColor='#99d9f4'>
+            <Text style={styles.buttonText}>Location</Text>
+          </TouchableHighlight>
+        </View>
+
         <Image source={require('../../shared/resources/house.png')} style={styles.image}/>
         {spinner}
         <Text style={styles.description}>{this.state.message}</Text>
