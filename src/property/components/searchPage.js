@@ -30,7 +30,6 @@ export default class SearchPage extends Component {
       location => {
         var search = `${location.coords.latitude},${location.coords.longitude}`;
         this.setState({request: search});
-        PropertyActions.search(search);
         this.executeQuery({centre_point: search});
       },
       error => {
