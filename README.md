@@ -37,6 +37,8 @@ Initially the boilerplate will support iOS & Android.
 - [ ] Deep Link
 - [ ] Data Collection
 - [ ] Mix Native with React Native
+- [ ] MapView
+- [ ] Offline support
 
 ## Libraries
 - [React Native](https://facebook.github.io/react-native/)
