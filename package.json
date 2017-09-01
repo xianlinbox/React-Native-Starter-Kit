@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "run-ios": "react-native run-ios",
+    "run-ios": "react-native run-ios ",
     "run-android": "react-native run-android",
     "test": "ava src/**/__tests__/*Specs.js --verbose",
     "watch:test": "npm run test -- --watch",
